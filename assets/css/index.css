@@ -13,13 +13,29 @@ a {
 .width-600 {
   max-width: 600px;
 }
+.width-50{
+  width: 50%;
+}
 .center {
   margin: 0 auto;
+}
+
+.display-inline{
+  display: inline;
+}
+.bottom-links{
+  display: inline-block;
+  float: left;
 }
 .text-center {
   text-align: center;
 }
-
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 .sign-in-box {
   margin-top: 120px;
 }
