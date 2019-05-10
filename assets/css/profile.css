@@ -2,3 +2,42 @@
   width: 100%
   padding: 25px;
 }
+
+.ride-list {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 15px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.user-info {
+  height: 250px;
+}
+.user-info > div {
+  display: inline-block;
+  float: left;
+}
+.profile-info > div {
+  display: inline-block;
+  float: left;
+}
+
+.profile-info {
+  width: 50%;
+}
+
+.about{
+  padding: 20px;
+}
+.stats {
+  width: 50%;
+}
