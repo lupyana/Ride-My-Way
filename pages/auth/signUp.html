@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Ride My Way</title>
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="../../assets/css/index.css">
   </head>
   <body>
     <main>
       <div class="width-600 center sign-in-box">
         <div class="text-center">
-            <h2>Sign In</h2>
+            <h2>Sign Up</h2>
         </div>
         <div class="">
           <form class="" action="" method="post">
@@ -21,18 +21,20 @@
            <div class="spacer">
             <input type="text" name="password" id="loginPassword" value="" placeholder="Password" class="input-box"><br>
           </div>
-            <a href="pages/main.html"> <button type="button" name="button" class="input-button">Sign In</button> </a>
+          <label for="loginPasswordConfirm" class="input-label mb-20">Confirm Password</label>
+          <div class="spacer">
+           <input type="text" name="re-password" id="loginPasswordConfirm" value="" placeholder="Confirm Password" class="input-box"><br>
+         </div>
+            <a href="verify.html"> <button type="button" name="button" class="input-button">Sign Up</button> </a>
           </form>
         </div>
 
         <div class="">
           <div class="bottom-links text-left width-50">
-            Don't have an account yet?
-              <a href="pages/auth/signUp.html">Sign Up</a>
+            Already have an account?
+              <a href="../../index.html">Sign In</a>
           </div>
-          <div class="bottom-links text-right width-50">
-            <a href="pages/auth/forgot.html">Forgot password?</a>
-          </div>
+
         </div>
 
       </div>
