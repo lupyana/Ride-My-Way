@@ -3,7 +3,26 @@ body {
   padding:0px;
   margin:0px;
 }
+header {
+  background: #eee;
+  border-bottom:  2px black solid;
+  padding: 25px;
+}
+#logo {
+  font-size: 15px;
+  margin: 20px;
+}
+.links{
+  float: right;
+}
+.links div{
+  margin: 20px;
+  display: inline;
+}
 
+.custom-header div{
+  display: inline;
+}
 a {
   text-decoration: none;
 }
