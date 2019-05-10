@@ -24,6 +24,7 @@ header {
   display: inline;
 }
 a {
+  color:black;
   text-decoration: none;
 }
 .bg-whiite {
@@ -35,8 +36,17 @@ a {
 .width-50{
   width: 50%;
 }
+.width-70 {
+  width: 70%;
+}
+.width-30 {
+  width: 30%;
+}
 .width-80p {
   width: 80%;
+}
+.width-100 {
+  width: 100%;
 }
 .center {
   margin: 0 auto;
@@ -136,8 +146,20 @@ a {
   padding: 30px;
 }
 
+.padding-10 {
+  padding: 10px;
+}
 .avatar {
   background: #eef4f7;
   padding: 8px;
   border-radius: 100px
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background: #eee;
+  border-top:  2px black solid;
+  padding:25px 0px;
 }
