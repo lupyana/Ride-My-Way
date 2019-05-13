@@ -8,6 +8,10 @@ header {
   border-bottom:  2px black solid;
   padding: 25px;
 }
+
+main {
+  min-height: 100vh;
+}
 #logo {
   font-size: 15px;
   margin: 20px;
