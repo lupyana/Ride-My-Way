@@ -1,9 +1,7 @@
-{box-sizing: border-box;}
-
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   z-index: 8;
-  background-color: #555;
+  background: #f05a28;
   color: white;
   padding: 16px 20px;
   border: none;
