@@ -28,11 +28,14 @@
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
-  padding: 10px;
+  max-width: 400px;
+  padding: 20px;
   background-color: white;
 }
 
+.form-container input {
+  max-width: 370px;
+}
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
