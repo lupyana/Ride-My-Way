@@ -5,7 +5,7 @@ body {
 }
 header {
   background: #eee;
-  border-bottom:  2px black solid;
+  border-bottom: 1px #f05a28 solid;
   padding: 25px;
 }
 
@@ -28,8 +28,19 @@ main {
   display: inline;
 }
 a {
+  cursor: pointer;
   color:black;
   text-decoration: none;
+}
+a:hover {
+ cursor:pointer;
+}
+
+.links div:hover {
+  color: #f05a28;
+}
+#logo:hover {
+  color: #f05a28;
 }
 .bg-whiite {
   background: white;
@@ -77,25 +88,28 @@ a {
 }
 .input-box {
     width:94%;
-    padding: 8px 18px;
+    padding: 18px 18px;
     font-size: 14px;
     margin-bottom: 20px;
     background: #FFF;
     border: 1px solid #eef4f7;
-    border-radius: 0;
+    border-radius: 5px;
     outline: 0;
     color: #000;
 }
 
 .input-button {
+    background: #f05a28;
     width:100%;
-    padding: 8px 18px;
+    padding: 12px 3px;
+    line-height: 1.5;
+    border-radius: .25rem;
     font-size: 14px;
     margin-bottom: 20px;
     border: 1px solid #eef4f7;
-    border-radius: 0;
+    border-radius: 5px;
     outline: 0;
-    color: #000;
+    color: #fff;
 }
 
 .input-label {
@@ -124,7 +138,9 @@ a {
 }
 
 .offer {
-  background: white;
+  /* box-shadow:   3px 3px 3px 2px #ccc; */
+  /* border-radius: 8px; */
+  /* background: white; */
   width: 30%;
   display:inline-block;
   float: left;
@@ -164,7 +180,7 @@ footer {
   bottom: 0;
   width: 100%;
   background: #eee;
-  border-top:  2px black solid;
+  border-top:  1px #f05a28 solid;
   padding:25px 0px;
 }
 
