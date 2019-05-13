@@ -1,0 +1,12 @@
+.ride-info {
+  width: 100%
+  padding: 25px;
+}
+
+.map img {
+  width: 100%;
+}
+.side-side div {
+  display: inline-block;
+  float: left;
+}

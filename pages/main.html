@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ride My Way</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="custom-header" id>
+        <div class="" id="logo">
+          <a href="#">Ride My Way</a>
+        </div>
+
+        <div class="links">
+
+          <div class="">
+            <a href="notifications.html">Notifications</a>
+          </div>
+
+          <div class="side-dropdown dropdown">
+            John Doe
+            <div class="dropdown-content">
+
+              <a href="profile.html">Profile</a>
+              <a href="../index.html">Log Out</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+    <main>
+      <div class="width-80p center ">
+        <div class="offer-list">
+          <a href="ride.html">
+          <div class="offer">
+            <div class="padding-30">
+                <div class="mb-20">
+                    <img src="https://via.placeholder.com/320x80" alt="">
+                </div>
+                <div class="ride-details ">
+                  <div class="width-50 ride-start mb-10">
+                    Kkoo to Mbezi
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Time: 1800 hrs
+                  </div>
+                </div>
+                <div class="ride-offerer">
+                  <div class="width-50 ride-start mb-10">
+                    <span class="avatar">With: </span> Benito
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Rating: some stars
+                  </div>
+                </div>
+            </div>
+          </div>
+          </a>
+          <a href="ride.html">
+          <div class="offer">
+            <div class="padding-30">
+                <div class="mb-20">
+                    <img src="https://via.placeholder.com/320x80" alt="">
+                </div>
+                <div class="ride-details ">
+                  <div class="width-50 ride-start mb-10">
+                    Kkoo to Mbezi
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Time: 1800 hrs
+                  </div>
+                </div>
+                <div class="ride-offerer">
+                  <div class="width-50 ride-start mb-10">
+                    <span class="avatar">With: </span> Benito
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Rating: some stars
+                  </div>
+                </div>
+            </div>
+          </div>
+        </a>
+        <a href="ride.html">
+          <div class="offer">
+            <div class="padding-30">
+                <div class="mb-20">
+                    <img src="https://via.placeholder.com/320x80" alt="">
+                </div>
+                <div class="ride-details ">
+                  <div class="width-50 ride-start mb-10">
+                    Kkoo to Mbezi
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Time: 1800 hrs
+                  </div>
+                </div>
+                <div class="ride-offerer">
+                  <div class="width-50 ride-start mb-10">
+                    <span class="avatar">With: </span> Benito
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Rating: some stars
+                  </div>
+                </div>
+            </div>
+          </div>
+        </a>
+        <a href="ride.html">
+          <div class="offer">
+            <div class="padding-30">
+                <div class="mb-20">
+                    <img src="https://via.placeholder.com/320x80" alt="">
+                </div>
+                <div class="ride-details ">
+                  <div class="width-50 ride-start mb-10">
+                    Kkoo to Mbezi
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Time: 1800 hrs
+                  </div>
+                </div>
+                <div class="ride-offerer">
+                  <div class="width-50 ride-start mb-10">
+                    <span class="avatar">With: </span> Benito
+                  </div>
+                  <div class="width-50 ride-time text-right mb-10">
+                    Rating: some stars
+                  </div>
+                </div>
+            </div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+      <button class="open-button" onclick="openForm()">Give a Ride</button>
+      <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Want to offer someone a ride  ?</h1>
+          <p>We just need a few details</p>
+
+          <label for="ride_start"><b>Starting point</b></label>
+          <input type="text" placeholder="From" name="ride_start" required>
+
+          <label for="ride_destination"><b>Destination</b></label>
+          <input type="text" placeholder="To" name="ride_destination" required>
+
+          <label for="ride_time"><b>Prefered time</b></label>
+          <input type="text" placeholder="Time" name="ride_time" required>
+
+          <label for="ride_fare"><b>Asking price</b></label>
+          <input type="text" placeholder="Time" name="ride_fare" required>
+
+          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </main>
+    <footer class="text-center">
+      RideMyWay &copy; 2019
+    </footer>
+    <script type="text/javascript" src="../assets/js/form.js">
+
+    </script>
+  </body>
+</html>
