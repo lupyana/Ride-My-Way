@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Ride My Way</title>
     <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
+
   </head>
   <body>
     <header>
@@ -136,9 +138,31 @@
 
         </div>
       </div>
+      <button class="open-button" onclick="openForm()">Give a Ride</button>
+      <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Wanna offer someone a ride  ?</h1>
+          <p>Just a few details</p>
+
+          <label for="ride_start"><b>Starting point</b></label>
+          <input type="text" placeholder="From" name="ride_start" required>
+
+          <label for="ride_destination"><b>Destination</b></label>
+          <input type="text" placeholder="To" name="ride_destination" required>
+
+          <label for="ride_time"><b>Prefered time</b></label>
+          <input type="text" placeholder="Time" name="ride_time" required>
+
+          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
     </main>
-    <!-- <footer class="text-center">
+    <footer class="text-center">
       RideMyWay &copy; 2019
-    </footer> -->
+    </footer>
+    <script type="text/javascript" src="../assets/js/form.js">
+
+    </script>
   </body>
 </html>
