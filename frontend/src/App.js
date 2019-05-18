@@ -5,8 +5,10 @@ import Register from "./components/Auth/Register";
 import Forgot from "./components/Auth/Forgot";
 import Dashboard from "./components/Dashboard";
 import ViewRide from "./components/ViewRide";
+import Profile from "./components/Profile";
 
-import './App.css';
+
+import './css/App.css';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route exact path='/forgot-password' component={Forgot} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/view-ride' component={ViewRide} />
+        <Route exact path='/profile' component={Profile} />
+
       </Switch>
     </div>
   );
