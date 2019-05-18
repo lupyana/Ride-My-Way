@@ -31,3 +31,236 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background:#eef4f7;
+  padding:0px;
+  margin:0px;
+}
+header {
+  background: #eee;
+  border-bottom: 1px #f05a28 solid;
+  padding: 25px;
+}
+
+main {
+  min-height: 100vh;
+}
+#logo {
+  font-size: 15px;
+  margin: 20px;
+}
+.links{
+  float: right;
+}
+.links > div{
+  margin: 20px;
+  display: inline;
+}
+
+.custom-header > div{
+  display: inline;
+}
+a {
+  cursor: pointer;
+  color:black;
+  text-decoration: none;
+}
+a:hover {
+ cursor:pointer;
+}
+
+.links div:hover {
+  color: #f05a28;
+}
+#logo:hover {
+  color: #f05a28;
+}
+.bg-whiite {
+  background: white;
+}
+.width-600 {
+  max-width: 600px;
+}
+.width-50{
+  width: 50%;
+}
+.width-70 {
+  width: 70%;
+}
+.width-30 {
+  width: 30%;
+}
+.width-80p {
+  width: 80%;
+}
+.width-100 {
+  width: 100%;
+}
+.center {
+  margin: 0 auto;
+}
+
+.display-inline{
+  display: inline;
+}
+.bottom-links{
+  display: inline-block;
+  float: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.sign-in-box {
+  margin-top: 120px;
+}
+.input-box {
+  width:94%;
+  padding: 18px 18px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  background: #FFF;
+  border: 1px solid #eef4f7;
+  border-radius: 5px;
+  outline: 0;
+  color: #000;
+}
+
+.input-button {
+  background: #f05a28;
+  width:100%;
+  padding: 12px 3px;
+  line-height: 1.5;
+  border-radius: .25rem;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #eef4f7;
+  border-radius: 5px;
+  outline: 0;
+  color: #fff;
+}
+
+.input-label {
+
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.spacer{
+  width: inherit;
+  margin: 10px 0 10px;
+}
+
+.offer-list {
+  width: 100%;
+}
+
+.offer-list {
+  margin-top: 50px;
+  background: red;
+}
+
+.offer {
+  /* box-shadow:   3px 3px 3px 2px #ccc; */
+  /* border-radius: 8px; */
+  /* background: white; */
+  width: 30%;
+  display:inline-block;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+}
+
+.offer img{
+  width: 100%;
+}
+
+.ride-details div {
+  display: inline;
+  float: left;
+}
+
+.ride-offerer div {
+  display: inline;
+  float: left;
+}
+
+.padding-30 {
+  padding: 30px;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+.avatar {
+  /* background: #eef4f7;
+  padding: 8px;
+  border-radius: 100px */
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background: #eee;
+  border-top:  1px #f05a28 solid;
+  padding:25px 0px;
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.side-dropdown {
+  display: inline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /* top: 30px; */
+  right: -15px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
