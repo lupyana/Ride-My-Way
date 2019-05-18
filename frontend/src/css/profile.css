@@ -1,0 +1,56 @@
+.user-info {
+  margin: 20px 0px 0px;
+  background: white;
+  border-radius: 5px;
+  box-shadow:   3px 3px 3px 2px #ccc;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 30px;
+}
+
+.ride-list {
+  box-shadow:   3px 3px 3px 2px #ccc;
+  background: white;
+  width: 100%;
+  padding: 25px 30px;
+
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 15px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.user-info {
+  height: 250px;
+}
+.user-info > div {
+  display: inline-block;
+  float: left;
+}
+.profile-info > div {
+  display: inline-block;
+  float: left;
+}
+
+.profile-info {
+  /* padding: 25px 30px; */
+
+  width: 50%;
+}
+
+.about{
+  padding: 20px;
+}
+.stats {
+  width: 50%;
+}
