@@ -19,7 +19,9 @@ class Login extends Component {
              <div class="spacer">
               <input type="text" name="password" id="loginPassword" value="" placeholder="Password" class="input-box"/>
             </div>
-              <a href="pages/main.html"> <button type="button" name="button" class="input-button">Sign In</button> </a>
+                <NavLink exact to="/dashboard">
+                  <button type="button" name="button" class="input-button">Sign In</button>
+                </NavLink>
             </form>
           </div>
 
@@ -29,7 +31,7 @@ class Login extends Component {
                       <NavLink exact to="/register">Sign Up</NavLink>
                     </div>
                     <div class="bottom-links text-right width-50">
-                      <a href="pages/auth/forgot.html">Forgot password?</a>
+                        <NavLink exact to="/forgot-password">Forgot password?</NavLink>
                     </div>
                   </div>
           </div>
