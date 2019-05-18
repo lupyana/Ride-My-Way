@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Forgot extends Component {
   render() {
@@ -13,8 +13,10 @@ class Forgot extends Component {
             <label htmlFor="loginInput" className="input-label mb-20">Email address or mobile number</label>
             <div className="spacer">
              <input type="text" name="user" id="loginInput" placeholder="Email or Phonenumber" className="input-box" />
-           </div>
-             <button type="button" name="button" className="input-button">Reset Password</button>
+            </div>
+            <NavLink exact to="/">
+              <button type="button" name="button" className="input-button">Reset Password</button>
+            </NavLink>
           </form>
         </div>
       </div>
