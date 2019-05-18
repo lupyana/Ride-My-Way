@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Header from "./partials/Header"
 import Offer from "./partials/Offer"
-
+import { NavLink } from 'react-router-dom';
 import '../css/form.css';
-// import { NavLink } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
@@ -13,7 +12,7 @@ class Dashboard extends Component {
 
           <div class="width-80p center ">
             <div class="offer-list">
-              <Offer />
+              <NavLink exact to="view-ride"><Offer /></NavLink>
             </div>
           </div>
           <button class="open-button" >Give a Ride</button>
