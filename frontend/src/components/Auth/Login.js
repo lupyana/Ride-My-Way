@@ -5,32 +5,32 @@ class Login extends Component {
   render() {
     return (
       <div >
-        <div class="width-600 center sign-in-box">
-          <div class="text-center">
+        <div className="width-600 center sign-in-box">
+          <div className="text-center">
               <h2>Sign In</h2>
           </div>
-          <div class="">
-            <form class="" action="" method="post">
-              <label for="loginInput" class="input-label mb-20">Email address or mobile number:</label>
-              <div class="spacer">
-               <input type="text" name="user" id="loginInput" value="" placeholder="Email or Phonenumber" class="input-box"/>
+          <div className="">
+            <form className="" action="" method="post">
+              <label htmlFor="loginInput" className="input-label mb-20">Email address or mobile number:</label>
+              <div className="spacer">
+               <input type="text" name="user" id="loginInput" placeholder="Email or Phonenumber" className="input-box"/>
              </div>
-             <label for="loginPassword" class="input-label mb-20">Password: </label>
-             <div class="spacer">
-              <input type="text" name="password" id="loginPassword" value="" placeholder="Password" class="input-box"/>
+             <label htmlFor="loginPassword" className="input-label mb-20">Password: </label>
+             <div className="spacer">
+              <input type="text" name="password" id="loginPassword" placeholder="Password" className="input-box"/>
             </div>
                 <NavLink exact to="/dashboard">
-                  <button type="button" name="button" class="input-button">Sign In</button>
+                  <button type="button" name="button" className="input-button">Sign In</button>
                 </NavLink>
             </form>
           </div>
 
-                  <div class="">
-                    <div class="bottom-links text-left width-50">
+                  <div className="">
+                    <div className="bottom-links text-left width-50">
                       Don't have an account yet?
                       <NavLink exact to="/register">Sign Up</NavLink>
                     </div>
-                    <div class="bottom-links text-right width-50">
+                    <div className="bottom-links text-right width-50">
                         <NavLink exact to="/forgot-password">Forgot password?</NavLink>
                     </div>
                   </div>

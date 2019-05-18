@@ -9,8 +9,8 @@ class Dashboard extends Component {
     return (
       <div>
         <Header />
-        <div class="width-80p center ">
-          <div class="offer-list">
+        <div className="width-80p center ">
+          <div className="offer-list">
             <NavLink exact to="view-ride"><Offer /></NavLink>
           </div>
         </div>

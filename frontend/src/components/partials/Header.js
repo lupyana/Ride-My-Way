@@ -6,18 +6,18 @@ class Header extends Component {
     return (
       <div>
         <header>
-          <div class="custom-header" id>
-            <div class="" id="logo">
+          <div className="custom-header" >
+            <div className="" id="logo">
               <NavLink exact to="/dashboard">Ride My Way</NavLink>
             </div>
 
-            <div class="links">
-              <div class="">
+            <div className="links">
+              <div className="">
                 <NavLink exact to="/notifications">Notifications</NavLink>
               </div>
-              <div class="side-dropdown dropdown">
+              <div className="side-dropdown dropdown">
                 John Doe
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                   <NavLink exact to="/profile">Profile</NavLink>
                   <NavLink exact to="/">Log Out</NavLink>
                 </div>
