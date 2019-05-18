@@ -4,7 +4,7 @@ import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Forgot from "./components/Auth/Forgot";
 import Dashboard from "./components/Dashboard";
-
+import ViewRide from "./components/ViewRide";
 
 import './App.css';
 
@@ -17,7 +17,7 @@ function App() {
         <Route exact path='/register' component={Register} />
         <Route exact path='/forgot-password' component={Forgot} />
         <Route exact path='/dashboard' component={Dashboard} />
-        <Route exact path='/view-ride' component={ViewRIde} />
+        <Route exact path='/view-ride' component={ViewRide} />
       </Switch>
     </div>
   );
