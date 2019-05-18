@@ -87,29 +87,29 @@ a:hover {
   margin-top: 120px;
 }
 .input-box {
-    width:94%;
-    padding: 18px 18px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    background: #FFF;
-    border: 1px solid #eef4f7;
-    border-radius: 5px;
-    outline: 0;
-    color: #000;
+  width:94%;
+  padding: 18px 18px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  background: #FFF;
+  border: 1px solid #eef4f7;
+  border-radius: 5px;
+  outline: 0;
+  color: #000;
 }
 
 .input-button {
-    background: #f05a28;
-    width:100%;
-    padding: 12px 3px;
-    line-height: 1.5;
-    border-radius: .25rem;
-    font-size: 14px;
-    margin-bottom: 20px;
-    border: 1px solid #eef4f7;
-    border-radius: 5px;
-    outline: 0;
-    color: #fff;
+  background: #f05a28;
+  width:100%;
+  padding: 12px 3px;
+  line-height: 1.5;
+  border-radius: .25rem;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #eef4f7;
+  border-radius: 5px;
+  outline: 0;
+  color: #fff;
 }
 
 .input-label {
