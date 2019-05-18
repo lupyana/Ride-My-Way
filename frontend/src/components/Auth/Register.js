@@ -22,7 +22,9 @@ class Register extends Component {
           <div className="spacer">
            <input type="text" name="re-password" id="loginPasswordConfirm"  placeholder="Confirm Password" className="input-box"/>
          </div>
-            <a href="verify.html"> <button type="button" name="button" className="input-button">Sign Up</button> </a>
+          <NavLink exact to="/verification">
+            <button type="button" name="button" className="input-button">Sign Up</button>
+            </NavLink>
           </form>
         </div>
 
