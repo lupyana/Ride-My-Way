@@ -6,6 +6,7 @@ import Forgot from "./components/Auth/Forgot";
 import Dashboard from "./components/Dashboard";
 import ViewRide from "./components/ViewRide";
 import Profile from "./components/Profile";
+import Notifications from "./components/Notifications";
 
 
 import './css/App.css';
@@ -21,7 +22,7 @@ function App() {
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/view-ride' component={ViewRide} />
         <Route exact path='/profile' component={Profile} />
-
+        <Route exact path='/notifications' component={Notifications} />
       </Switch>
     </div>
   );
