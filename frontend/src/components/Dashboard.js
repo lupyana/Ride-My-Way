@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./Header"
+import Header from "./partials/Header"
 import '../css/form.css';
 // import { NavLink } from 'react-router-dom';
 
