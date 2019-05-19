@@ -2,6 +2,20 @@ import React, { Component } from "react";
 import { NavLink } from 'react-router-dom';
 
 class Login extends Component {
+  signIn(e) {
+    e.preventDefault();
+    if(this.authUser(this.email.value, this.password.value)) {
+       this.props.history.push('/dashboard');
+    }
+    else {
+      console.log("nop");
+    }
+  }
+  authUser(email, password) {
+    if((email === "johndoe@example.com") && (password === "password")) {
+      return true;
+    }
+  }
   render() {
     return (
       <div >
@@ -10,18 +24,18 @@ class Login extends Component {
               <h2>Sign In</h2>
           </div>
           <div className="">
-            <form className="" action="" method="post">
+            <form className="" ref={input => this.signInForm = input }  onSubmit={(e) =>  {this.signIn(e)}}>
               <label htmlFor="loginInput" className="input-label mb-20">Email address or mobile number:</label>
               <div className="spacer">
-               <input type="text" name="user" id="loginInput" placeholder="Email or Phonenumber" className="input-box"/>
+               <input type="email" ref={input => this.email = input } name="user" id="loginInput" placeholder="Email" className="input-box" required/>
              </div>
              <label htmlFor="loginPassword" className="input-label mb-20">Password: </label>
              <div className="spacer">
-              <input type="text" name="password" id="loginPassword" placeholder="Password" className="input-box"/>
+              <input type="text" ref={input => this.password = input } name="password" id="loginPassword" placeholder="Password" className="input-box" required/>
             </div>
-                <NavLink exact to="/dashboard">
-                  <button type="button" name="button" className="input-button">Sign In</button>
-                </NavLink>
+
+            <button type="submit" name="button" className="input-button">Sign In</button>
+
             </form>
           </div>
 
@@ -34,6 +48,17 @@ class Login extends Component {
                         <NavLink exact to="/forgot-password">Forgot password?</NavLink>
                     </div>
                   </div>
+
+          <div className="text-center">
+                <br />
+                <h2>Demo creds</h2>
+                <p>
+                  email: johndoe@example.com
+                </p>
+                <p>
+                  password: password
+                </p>
+          </div>
           </div>
       </div>
     );
