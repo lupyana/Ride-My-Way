@@ -8,6 +8,8 @@ import Dashboard from "./components/Dashboard";
 import ViewRide from "./components/ViewRide";
 import Profile from "./components/Profile";
 import Notifications from "./components/Notifications";
+import error404 from "./components/error/404";
+
 import './css/App.css';
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route path='/profile' component={Profile} />
         <Route exact path='/notifications' component={Notifications} />
         <Route path='/verification' component={Verify} />
+        <Route component={error404} />
       </Switch>
     </div>
   );
