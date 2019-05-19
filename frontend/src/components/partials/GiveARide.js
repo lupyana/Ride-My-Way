@@ -12,7 +12,6 @@ class GiveARide extends Component {
 
   addItem(e) {
     e.preventDefault();
-    console.log(this.ride_start.value);
     this.props.handler({
       from: this.ride_start.value,
       to: this.ride_destination.value,
@@ -20,7 +19,10 @@ class GiveARide extends Component {
       time: this.ride_fare.value,
     });
 
+    //reset the form
     this.give_ride_form.reset();
+
+    //Close the form
     this.closeForm();
 
   }

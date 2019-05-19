@@ -47,7 +47,7 @@ class Dashboard extends Component {
         <Header />
         <div className="width-80p center ">
           <div className="offer-list">
-            {this.state.rides.map(ride => <NavLink exact to="view-ride"><Offer ride={ride} /></NavLink>)}
+            {this.state.rides.map(ride => <NavLink to={{ pathname: 'view-ride', rideDetails:ride }} ><Offer ride={ride} /></NavLink>)}
           </div>
         </div>
         <GiveARide handler = {this.handler} />
