@@ -14,7 +14,7 @@ class Offer extends Component {
                 {this.props.ride.from} to {this.props.ride.to}
               </div>
               <div className="width-50 ride-time text-right mb-10">
-                Time: { this.props.ride.time }
+                Time: { this.props.ride.time } Hrs
               </div>
             </div>
             <div className="ride-offerer">
