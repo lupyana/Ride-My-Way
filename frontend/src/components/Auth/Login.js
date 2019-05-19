@@ -22,10 +22,12 @@ class Login extends Component {
         <div className="width-600 center sign-in-box">
           <div className="text-center">
               <h2>Sign In</h2>
+                <p> Welcome rider, Identification please: </p>
+
           </div>
           <div className="">
             <form className="" ref={input => this.signInForm = input }  onSubmit={(e) =>  {this.signIn(e)}}>
-              <label htmlFor="loginInput" className="input-label mb-20">Email address or mobile number:</label>
+              <label htmlFor="loginInput" className="input-label mb-20">Email address:</label>
               <div className="spacer">
                <input type="email" ref={input => this.email = input } name="user" id="loginInput" placeholder="Email" className="input-box" required/>
              </div>
