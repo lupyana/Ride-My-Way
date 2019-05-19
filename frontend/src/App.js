@@ -20,9 +20,9 @@ function App() {
         <Route exact path='/forgot-password' component={Forgot} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/view-ride' component={ViewRide} />
-        <Route exact path='/profile' component={Profile} />
+        <Route path='/profile' component={Profile} />
         <Route exact path='/notifications' component={Notifications} />
-        <Route exact path='/verification' component={Verify} />
+        <Route path='/verification' component={Verify} />
       </Switch>
     </div>
   );
