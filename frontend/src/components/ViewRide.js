@@ -18,15 +18,12 @@ class ViewRide extends Component {
                 <h2>
                 Ride Details
                 </h2>
-                <p>Driver: Benito Nito</p>
+                <p>Driver: { this.props.location.rideDetails.with }</p>
                 <p>
-                  From: Kkoo to Mbezi
+                  From: { this.props.location.rideDetails.from } to { this.props.location.to }
                 </p>
                 <p>
-                Time: 1800 hrs
-                </p>
-                <p>
-                  Vehicle: Toyota Vits, T999 ABC
+                Time: { this.props.location.rideDetails.time } hrs
                 </p>
               </div>
               <div className=" width-30 price-action text-center">

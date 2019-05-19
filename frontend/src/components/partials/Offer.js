@@ -11,15 +11,15 @@ class Offer extends Component {
             </div>
             <div className="ride-details ">
               <div className="width-50 ride-start mb-10">
-                Kkoo to Mbezi
+                {this.props.ride.from} to {this.props.ride.to}
               </div>
               <div className="width-50 ride-time text-right mb-10">
-                Time: 1800 hrs
+                Time: { this.props.ride.time } Hrs
               </div>
             </div>
             <div className="ride-offerer">
               <div className="width-50 ride-start mb-10">
-                <span className="avatar">With: </span> Benito
+                <span className="avatar">With: </span> { this.props.ride.with }
               </div>
               <div className="width-50 ride-time text-right mb-10">
                 Rating: some stars

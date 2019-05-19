@@ -7,6 +7,7 @@ class Register extends Component {
       <div className="width-600 center sign-in-box">
         <div className="text-center">
             <h2>Sign Up</h2>
+            <p> Just a few details, We will get you up and going in minutes.</p>
         </div>
         <div className="">
           <form className="" action="" method="post">
