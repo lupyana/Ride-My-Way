@@ -16,20 +16,14 @@ Courtesy of ALC and forloopTz
     -  The number of rides the user has takes
     -  List of rides taken and given
 
-# Tools && Languages used
+# Languages used
 ## Languages
   - Html
   - Css
   - Javascript
 
-## Tools used
-  - Google Chrome --> display our web App in Development mode
-  - vim (So exicited to use vim for the first time in this project, Its so awesome, I use vim to write this documentation that's README.md)
-  - VsCode --> to write the rest of the code..
-
-
 ### Getting started
-##Requirements
+## Requirements
 - [nodeJs](https://nodejs.org/en/download/)
 
 - [yarn](https://yarnpkg.com/en/docs/install) (Optional)
