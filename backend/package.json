@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Api imlementation for the ridemyway app",
+  "main": "index.js",
+  "author": "Lupyana Mbembati",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
