@@ -1,13 +1,11 @@
 const express = require('express');
+const router = require('./router/routes');
 
 const app = express();
 const port = 3000;
-const router = express.Router(); // get an instance of the express Router
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Hello world' });
-});
 
-app.use('/', router);
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.use('/api/v1', router);
 
 module.exports = app;
+
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`));
