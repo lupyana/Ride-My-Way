@@ -1,5 +1,9 @@
 language: bash
 
+node_js:
+  - "8"
+cache: yarn
+
 script:
   - cd backend
   - yarn install
