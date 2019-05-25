@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1558793355445" clover="3.2.0">
-  <project timestamp="1558793355446" name="All files">
-    <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="19" coveredelements="19" complexity="0" loc="16" ncloc="16" packages="2" files="2" classes="2"/>
+<coverage generated="1558795849732" clover="3.2.0">
+  <project timestamp="1558795849732" name="All files">
+    <metrics statements="26" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5" elements="32" coveredelements="30" complexity="0" loc="26" ncloc="26" packages="2" files="2" classes="2"/>
     <package name="backend">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/lupyana/Workspace/Ride-My-Way/backend/app.js">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
     </package>
     <package name="backend.router">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
       <file name="routes.js" path="/home/lupyana/Workspace/Ride-My-Way/backend/router/routes.js">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
       </file>
     </package>
   </project>
