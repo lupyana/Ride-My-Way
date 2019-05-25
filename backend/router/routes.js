@@ -1,7 +1,6 @@
 const express = require('express');
 
 const router = express.Router(); // get an instance of the express Router
-
 const rides = [
   {
     id: 1,
@@ -36,8 +35,16 @@ const rides = [
 router.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello world' });
 });
+router.post('/', (req, res) => {
+  res.send('Got a POST request');
+});
 
 router.get('/rides', (req, res) => {
+  res.status(200).json({ rides });
+});
+
+router.post('/rides', (req, res) => {
+  rides.push(req.body.newRide);
   res.status(200).json({ rides });
 });
 
