@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 
 const router = express.Router(); // get an instance of the express Router
 // parse various different custom JSON types as JSON
