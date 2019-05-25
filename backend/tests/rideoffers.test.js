@@ -44,14 +44,3 @@ describe('Create a ride offer', () => {
       expect(response.body.rides).toBeArrayOfSize(rides.length + 1);
     }));
 });
-
-// Test to check a single ride offer
-describe('Fetch a single ride offer', () => {
-  test('Should return an object with ride detail', () => request(app)
-    .get('/api/v1/rides/1')
-    .then((response) => {
-      expect(response).toBeDefined();
-      expect(response.statusCode).toBe(200);
-      expect(response.body.ride).toBeObject();
-    }));
-});
