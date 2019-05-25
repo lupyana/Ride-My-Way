@@ -26,9 +26,17 @@ describe('Fetch a single ride offer', () => {
 });
 
 describe('Create a ride offer', () => {
+  const newRide = {
+    id: 5,
+    from: 'Bamag',
+    to: 'Mbezi',
+    with: 'Ben Teyga',
+    time: '1800',
+  };
   test('Creating a ride offer increases the size of rides array', () => request(app)
     .post('/api/v1/rides')
-  // .send({ name: 'john' })
+    .set('Accept', 'application/json')
+    .send({ newRide })
     .then((response) => {
       expect(response).toBeDefined();
       expect(response.statusCode).toBe(200);
