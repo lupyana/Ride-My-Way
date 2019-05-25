@@ -52,4 +52,8 @@ router.get('/rides/:id', (req, res) => {
   res.status(200).json({ ride: rides[req.params.id] });
 });
 
+router.post('/rides/:id/request', (req, res) => {
+  res.status(200).json({ message: 'Your request has been recieved' });
+});
+
 module.exports = router;

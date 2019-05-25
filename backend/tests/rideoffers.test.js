@@ -25,6 +25,7 @@ describe('Fetch a single ride offer', () => {
     }));
 });
 
+// Test to chech creating ride offer
 describe('Create a ride offer', () => {
   const newRide = {
     id: 5,
@@ -42,5 +43,16 @@ describe('Create a ride offer', () => {
       expect(response.statusCode).toBe(200);
       expect(response.body.rides).toBeArray();
       expect(response.body.rides).toBeArrayOfSize(rides.length + 1);
+    }));
+});
+
+// Test to join a ride
+describe('Make a request to join a ride', () => {
+  test('Should return a success message', () => request(app)
+    .post('/api/v1/rides/1/request')
+    .then((response) => {
+      expect(response).toBeDefined();
+      expect(response.statusCode).toBe(200);
+      expect(response.body.message).toBe('Your request has been recieved');
     }));
 });
