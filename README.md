@@ -19,7 +19,14 @@ Courtesy of ALC and forloopTz
   - The number of rides the user has takes
   - List of rides taken and given
 
-# Languages used
+# Tools and Languages used
+
+## Tools
+
+- Atom (code Editor)
+- nodeJs
+- Travis CI
+- Jest and Supertest
 
 ## Languages
 
@@ -37,16 +44,24 @@ Courtesy of ALC and forloopTz
 
 ## Project setup
 
-- Install nodejs dependencies:
+Install nodejs dependencies:
 
 ```
 yarn install
 ```
 
-if you are using npm
+If you are using npm
 
 ```
 npm install
+```
+
+## Lets run some tests
+
+Call the test command
+
+```
+yarn test
 ```
 
 ## Start Dev server
