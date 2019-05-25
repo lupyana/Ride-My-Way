@@ -1,7 +1,6 @@
 const express = require('express');
 
 const router = express.Router(); // get an instance of the express Router
-// parse various different custom JSON types as JSON
 const rides = [
   {
     id: 1,
