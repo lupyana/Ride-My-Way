@@ -4,4 +4,4 @@ node_js:
 cache: yarn
 
 script:
-  - cd backend && yarn install && yarn test
+  - cd backend && yarn install && yarn coveralls
