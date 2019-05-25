@@ -8,5 +8,6 @@ describe('Join a ride', () => {
     .then((response) => {
       expect(response).toBeDefined();
       expect(response.statusCode).toBe(200);
+      expect(response.body.message).toBe('You have requesed has been recieved');
     }));
 });
