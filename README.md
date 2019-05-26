@@ -1,4 +1,6 @@
-# Ride-My-Way [![Build Status](https://travis-ci.com/lupyana/Ride-My-Way.svg?branch=develop)](https://travis-ci.com/lupyana/Ride-My-Way) [![Coverage Status](https://coveralls.io/repos/github/lupyana/Ride-My-Way/badge.svg)](https://coveralls.io/github/lupyana/Ride-My-Way)
+[![Build Status](https://travis-ci.com/lupyana/Ride-My-Way.svg?branch=develop)](https://travis-ci.com/lupyana/Ride-My-Way) [![Coverage Status](https://coveralls.io/repos/github/lupyana/Ride-My-Way/badge.svg)](https://coveralls.io/github/lupyana/Ride-My-Way) [![Test Coverage](https://api.codeclimate.com/v1/badges/56db97bb29ce7468c20d/test_coverage)](https://codeclimate.com/github/lupyana/Ride-My-Way/test_coverage)
+
+# Ride-My-Way
 
 Ride-My-Way app is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.
 
