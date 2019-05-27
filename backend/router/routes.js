@@ -35,9 +35,6 @@ const rides = [
 router.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello world' });
 });
-router.post('/', (req, res) => {
-  res.send('Got a POST request');
-});
 
 router.get('/rides', (req, res) => {
   res.status(200).json({ rides });
@@ -50,6 +47,10 @@ router.post('/rides', (req, res) => {
 
 router.get('/rides/:id', (req, res) => {
   res.status(200).json({ ride: rides[req.params.id] });
+});
+
+router.post('/rides/:id/request', (req, res) => {
+  res.status(200).json({ message: 'Your request has been recieved' });
 });
 
 module.exports = router;
