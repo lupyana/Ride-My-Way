@@ -32,6 +32,17 @@ class Ride {
     ];
   }
 
+  create(data) {
+    const newRide = {
+      from: data.from,
+      to: data.to,
+      with: data.with,
+      time: data.time,
+    };
+    this.rides.push(newRide);
+    return newRide;
+  }
+
   findAll() {
     return this.rides;
   }

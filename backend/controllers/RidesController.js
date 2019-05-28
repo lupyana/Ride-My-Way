@@ -1,6 +1,16 @@
 const RideModel = require('../models/Ride');
 
 const Ride = {
+  create(req, res) {
+    // return req.body;
+    console.log(req.body);
+    if ((!req.body.from && !req.body.to && !req.body.with, !req.body.time)) {
+      return res.status(400).send({ message: 'All fields are required' });
+    }
+    const ride = RideModel.create(req.body);
+    return res.status(201).send(ride);
+  },
+
   getAll(req, res) {
     const rides = RideModel.findAll();
     return res.status(200).send(rides);
