@@ -15,9 +15,11 @@ router.post('/rides', (req, res) => {
   res.status(200).json({ rides });
 });
 
-router.get('/rides/:id', (req, res) => {
-  res.status(200).json({ ride: rides[req.params.id] });
-});
+router.get('/rides/:id', Ride.getOne);
+
+// router.get('/rides/:id', (req, res) => {
+//   res.status(200).json({ ride: rides[req.params.id] });
+// });
 
 router.post('/rides/:id/request', (req, res) => {
   res.status(200).json({ message: 'Your request has been recieved' });

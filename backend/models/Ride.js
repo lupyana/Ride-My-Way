@@ -35,6 +35,10 @@ class Ride {
   findAll() {
     return this.rides;
   }
+
+  findOne(id) {
+    return this.rides.find(ride => ride.id == id);
+  }
 }
 
 module.exports = new Ride();
