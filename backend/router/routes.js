@@ -9,11 +9,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/rides', Ride.getAll);
-
-// router.post('/rides', (req, res) => {
-//   rides.push(req.body.newRide);
-//   res.status(200).json({ rides });
-// });
 router.post('/rides', Ride.create);
 router.get('/rides/:id', Ride.getOne);
 

@@ -3,7 +3,6 @@ const RideModel = require('../models/Ride');
 const Ride = {
   create(req, res) {
     // return req.body;
-    console.log(req.body);
     if ((!req.body.from && !req.body.to && !req.body.with, !req.body.time)) {
       return res.status(400).send({ message: 'All fields are required' });
     }
@@ -13,14 +12,14 @@ const Ride = {
 
   getAll(req, res) {
     const rides = RideModel.findAll();
-    return res.status(200).send(rides);
+    return res.status(200).send({ rides });
   },
   getOne(req, res) {
     const ride = RideModel.findOne(req.params.id);
     if (!ride) {
       return res.status(404).send({ message: 'Ride not found' });
     }
-    return res.status(200).send(ride);
+    return res.status(200).send({ ride });
   },
 };
 
