@@ -1,14 +1,37 @@
+import moment from 'moment';
+import uuidv4 from 'uuid/v4';
 import RideModel from '../models/Ride';
 import db from '../db/index';
 
 const Ride = {
   create(req, res) {
-    // return req.body;
     if ((!req.body.from && !req.body.to && !req.body.with, !req.body.time)) {
       return res.status(400).send({ message: 'All fields are required' });
     }
-    const ride = RideModel.create(req.body);
-    return res.status(201).send(ride);
+    const query = `INSERT INTO
+      rides(id, ride_start, ride_to, ride_time, ride_with, created_date, modified_date)
+      VALUES($1, $2, $3, $4, $5, $6, $7)
+      returning *`;
+    const values = [
+      uuidv4(),
+      req.body.from,
+      req.body.to,
+      req.body.time,
+      req.body.with,
+      moment(new Date()),
+      moment(new Date()),
+    ];
+
+    db.query(query, values)
+      .then((result) => {
+        console.log(result);
+        return res.status(201).send(result.rows);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(400).send(error);
+      });
+    // const ride = RideModel.create(req.body);
   },
 
   getAll(req, res) {
