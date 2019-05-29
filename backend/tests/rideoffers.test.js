@@ -9,29 +9,28 @@ describe('Fetch all ride offers', () => {
     .then((response) => {
       expect(response).toBeDefined();
       expect(response.statusCode).toBe(200);
-      expect(response.body.rides).toBeArray();
-      rides = response.body.rides;
+      expect(response.body.data).toBeArray();
+      rides = response.body;
     }));
 });
 
 // Test to check a single ride offer
-describe('Fetch a single ride offer', () => {
+describe('Fetch a missing ride offer', () => {
   test('Should return an object with ride detail', () => request(app)
     .get('/api/v1/rides/1')
     .then((response) => {
       expect(response).toBeDefined();
-      expect(response.statusCode).toBe(200);
-      expect(response.body.ride).toBeObject();
+      expect(response.statusCode).toBe(404);
+      expect(response.body.message).toBe('Ride not found');
     }));
 });
 
 // Test to chech creating ride offer
 describe('Create a ride offer', () => {
   const newRide = {
-    id: 5,
-    from: 'Bamag',
-    to: 'Mbezi',
-    with: 'Ben Teyga',
+    from: 'HEre test',
+    to: 'There test',
+    with: 'Ben The test driver',
     time: '1800',
   };
   test('Creating a ride offer increases the size of rides array', () => request(app)
@@ -41,7 +40,9 @@ describe('Create a ride offer', () => {
     .then((response) => {
       expect(response).toBeDefined();
       expect(response.statusCode).toBe(201);
-      expect(response.body).toBeObject();
+      expect(response.body.message).toBe('Success: your offer has been published!');
+
+      // expect(response.body).toBeObject();
       // expect(response.body).toBeArrayOfSize(rides.length + 1);
     }));
 });
