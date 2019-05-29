@@ -31,12 +31,11 @@ const Ride = {
         console.log(error);
         res.status(400).send(error);
       });
-    // const ride = RideModel.create(req.body);
   },
 
   getAll(req, res) {
-    const findAllQuery = 'SELECT * FROM rides';
-    db.query(findAllQuery)
+    const query = 'SELECT * FROM rides';
+    db.query(query)
       .then((result) => {
         console.log(result.rows);
         res.status(200).json({ data: result.rows });
@@ -45,11 +44,16 @@ const Ride = {
   },
 
   getOne(req, res) {
-    const ride = RideModel.findOne(req.params.id);
-    if (!ride) {
-      return res.status(404).send({ message: 'Ride not found' });
-    }
-    return res.status(200).send({ ride });
+    const query = 'SELECT * FROM rides WHERE id::text = $1';
+    const values = [req.params.id];
+    db.query(query, values)
+      .then((result) => {
+        if (!result.rows[0]) {
+          return res.status(404).send({ message: 'Ride not found' });
+        }
+        return res.status(200).json({ data: result.rows[0] });
+      })
+      .catch(error => res.status(400).send(error));
   },
 
   delete(req, res) {
