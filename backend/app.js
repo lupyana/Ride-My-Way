@@ -12,4 +12,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', router);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+export default app;
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`));
