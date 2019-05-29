@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "dev": "babel-watch app.js",
+    "build": "babel app.js --out-dir build"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -19,8 +21,12 @@
     "express": "^4.17.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0",
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",

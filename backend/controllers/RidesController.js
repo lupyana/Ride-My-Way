@@ -1,4 +1,4 @@
-const RideModel = require('../models/Ride');
+import RideModel from '../models/Ride';
 
 const Ride = {
   create(req, res) {
@@ -32,5 +32,4 @@ const Ride = {
     return res.status(204).send(ref);
   },
 };
-
-module.exports = Ride;
+export default Ride;

@@ -1,8 +1,8 @@
 // get an instance of the express Router
-const express = require('express');
+import express from 'express';
+import Ride from '../controllers/RidesController';
 
 const router = express.Router();
-const Ride = require('../controllers/RidesController');
 
 router.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello world' });
@@ -16,4 +16,4 @@ router.post('/rides/:id/request', (req, res) => {
   res.status(200).json({ message: 'Your request has been recieved' });
 });
 
-module.exports = router;
+export default router;

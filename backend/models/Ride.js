@@ -59,4 +59,4 @@ class Ride {
   }
 }
 
-module.exports = new Ride();
+export default new Ride();
