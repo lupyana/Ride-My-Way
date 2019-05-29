@@ -14,12 +14,22 @@ const Ride = {
     const rides = RideModel.findAll();
     return res.status(200).send({ rides });
   },
+
   getOne(req, res) {
     const ride = RideModel.findOne(req.params.id);
     if (!ride) {
       return res.status(404).send({ message: 'Ride not found' });
     }
     return res.status(200).send({ ride });
+  },
+
+  delete(req, res) {
+    const ride = RideModel.findOne(req.params.id);
+    if (!ride) {
+      return res.status(404).send({ message: 'ride not found' });
+    }
+    const ref = RideModel.delete(req.params.id);
+    return res.status(204).send(ref);
   },
 };
 

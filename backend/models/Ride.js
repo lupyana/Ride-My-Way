@@ -50,6 +50,13 @@ class Ride {
   findOne(id) {
     return this.rides.find(ride => ride.id == id);
   }
+
+  delete(id) {
+    const ride = this.findOne(id);
+    const index = this.rides.indexOf(ride);
+    this.rides.splice(index, 1);
+    return {};
+  }
 }
 
 module.exports = new Ride();
