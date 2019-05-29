@@ -1,4 +1,5 @@
 import RideModel from '../models/Ride';
+import db from '../db/index';
 
 const Ride = {
   create(req, res) {
@@ -11,8 +12,13 @@ const Ride = {
   },
 
   getAll(req, res) {
-    const rides = RideModel.findAll();
-    return res.status(200).send({ rides });
+    const findAllQuery = 'SELECT * FROM rides';
+    db.query(findAllQuery)
+      .then((result) => {
+        console.log(result.rows);
+        res.status(200).json({ data: result.rows });
+      })
+      .catch(error => res.status(400).send(error));
   },
 
   getOne(req, res) {
