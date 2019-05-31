@@ -1,6 +1,7 @@
 // get an instance of the express Router
 import express from 'express';
 import Ride from '../controllers/RidesController';
+import User from '../controllers/UserController';
 
 const router = express.Router();
 
@@ -15,5 +16,8 @@ router.get('/rides/:id', Ride.getOne);
 router.post('/rides/:id/request', (req, res) => {
   res.status(200).json({ message: 'Your request has been recieved' });
 });
+
+// User routes
+router.post('/auth/register', User.register);
 
 export default router;
