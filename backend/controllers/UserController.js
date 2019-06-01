@@ -1,8 +1,12 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import db from '../db/index';
 
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
+const SECRET_KEY = 'secretkey23456';
+const expiresIn = 24 * 60 * 60;
+
 const User = {
   register(req, res) {
     if (!req.body.email || !req.body.password || !req.body.fname || !req.body.lname) {
@@ -59,6 +63,44 @@ const User = {
           WHERE  user_id = $1 AND code = $2`;
       db.query(updatequery, [req.body.id, req.body.code]).then(result => res.status(200).send(true));
     });
+  },
+  login(req, res) {
+    if (!req.body.email || !req.body.password) {
+      return res.status(400).send({ message: 'All fields are required' });
+    }
+
+    // check if user exists
+    const query = 'SELECT * FROM users WHERE email = $1';
+    db.query(query, [req.body.email]).then((result) => {
+      const authUser = result.rows[0];
+
+      if (!authUser) {
+        return res.status(400).send({ message: 'The user does not exists' });
+      }
+
+      const phash = authUser.password;
+
+      if (!bcrypt.compareSync(req.body.password, phash)) {
+        return res.status(404).send({ message: 'Passord mismatch' });
+      }
+
+      const accessToken = jwt.sign({ id: authUser.id }, SECRET_KEY, {
+        expiresIn,
+      });
+      res.status(200).send({ user: authUser, access_token: accessToken, expires_in: expiresIn });
+    });
+    // const query = 'SELECT * FROM users WHERE email = $1 AND password = $2';
+    // const password = bcrypt.hashSync(req.body.password, salt);
+    // db.query(query, [req.body.email, password]).then((result) => {
+    //   if (!result.rows[0]) {
+    //     return res.status(404).send({ message: 'Code mismatch' });
+    //   }
+    //
+    //   const updatequery = `UPDATE user_activation
+    //       SET status = 1
+    //       WHERE  user_id = $1 AND code = $2`;
+    //   db.query(updatequery, [req.body.id, req.body.code]).then(result => res.status(200).send(true));
+    // });
   },
 };
 

@@ -22,7 +22,6 @@ const createRideTables = () => {
         ride_to VARCHAR(128) NOT NULL,
         ride_time VARCHAR(128) NOT NULL,
         ride_with VARCHAR(128) NOT NULL,
-        status numeric DEFAULT 0,
         created_date TIMESTAMP NOT NULL DEFAULT NOW(),
         modified_date TIMESTAMP NOT NULL DEFAULT NOW()
       )`;
