@@ -81,7 +81,7 @@ const User = {
       const phash = authUser.password;
 
       if (!bcrypt.compareSync(req.body.password, phash)) {
-        return res.status(404).send({ message: 'Passord mismatch' });
+        return res.status(400).send({ message: 'Password mismatch' });
       }
 
       const accessToken = jwt.sign({ id: authUser.id }, SECRET_KEY, {
