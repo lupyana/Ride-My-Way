@@ -89,18 +89,6 @@ const User = {
       });
       res.status(200).send({ user: authUser, access_token: accessToken, expires_in: expiresIn });
     });
-    // const query = 'SELECT * FROM users WHERE email = $1 AND password = $2';
-    // const password = bcrypt.hashSync(req.body.password, salt);
-    // db.query(query, [req.body.email, password]).then((result) => {
-    //   if (!result.rows[0]) {
-    //     return res.status(404).send({ message: 'Code mismatch' });
-    //   }
-    //
-    //   const updatequery = `UPDATE user_activation
-    //       SET status = 1
-    //       WHERE  user_id = $1 AND code = $2`;
-    //   db.query(updatequery, [req.body.id, req.body.code]).then(result => res.status(200).send(true));
-    // });
   },
 };
 

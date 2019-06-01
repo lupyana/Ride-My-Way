@@ -14,7 +14,7 @@ pool.on('connect', () => {
 /**
  * Create Tables
  */
-const createRideTables = () => {
+const createRidesTable = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       rides(
         id SERIAL PRIMARY KEY,
@@ -22,6 +22,7 @@ const createRideTables = () => {
         ride_to VARCHAR(128) NOT NULL,
         ride_time VARCHAR(128) NOT NULL,
         ride_with VARCHAR(128) NOT NULL,
+        status VARCHAR(128) NOT NULL DEFAULT 0,
         created_date TIMESTAMP NOT NULL DEFAULT NOW(),
         modified_date TIMESTAMP NOT NULL DEFAULT NOW()
       )`;
@@ -29,19 +30,39 @@ const createRideTables = () => {
   pool
     .query(queryText)
     .then((res) => {
-      console.log('here');
       console.log(res);
       pool.end();
     })
     .catch((err) => {
-      console.log('here');
-
       console.log(err);
       pool.end();
     });
 };
 
-const createUsersTables = () => {
+const createRidesRequestTable = () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS
+      rides_requests(
+        id SERIAL PRIMARY KEY,
+        ride_id VARCHAR(128) NOT NULL,
+        user_id VARCHAR(128) NOT NULL,
+        status VARCHAR(128) NOT NULL DEFAULT 0,
+        created_date TIMESTAMP NOT NULL DEFAULT NOW(),
+        modified_date TIMESTAMP NOT NULL DEFAULT NOW()
+      )`;
+
+  pool
+    .query(queryText)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
+
+const createUsersTable = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       users(
         id SERIAL PRIMARY KEY,
@@ -57,19 +78,16 @@ const createUsersTables = () => {
   pool
     .query(queryText)
     .then((res) => {
-      console.log('here');
       console.log(res);
       pool.end();
     })
     .catch((err) => {
-      console.log('here');
-
       console.log(err);
       pool.end();
     });
 };
 
-const createUsersActivationTable = () => {
+const createUserActivationTable = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       user_activation(
         id SERIAL PRIMARY KEY,
@@ -82,22 +100,20 @@ const createUsersActivationTable = () => {
   pool
     .query(queryText)
     .then((res) => {
-      console.log('here');
       console.log(res);
       pool.end();
     })
     .catch((err) => {
-      console.log('here');
-
       console.log(err);
       pool.end();
     });
 };
 // Create all Tables
-const createTables = () => {
-  createUsersTables();
-  createUsersActivationTable();
-  createRideTables();
+const createAllTables = () => {
+  createUsersTable();
+  createUserActivationTable();
+  createRidesTable();
+  createRidesRequestTable();
 };
 
 /**
@@ -123,11 +139,12 @@ pool.on('remove', () => {
 });
 
 module.exports = {
-  createTables,
+  createAllTables,
   dropTables,
-  createUsersTables,
-  createRideTables,
-  createUsersActivationTable,
+  createUsersTable,
+  createRidesTable,
+  createUserActivationTable,
+  createRidesRequestTable,
 };
 
 require('make-runnable');
