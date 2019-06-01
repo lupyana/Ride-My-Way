@@ -32,11 +32,16 @@ router.use((req, res, next) => {
   }
 });
 
+// Fetch all available rides
 router.get('/rides', Ride.getAll);
-router.post('/rides', Ride.create);
+
+// Fetch the details of a single ride
 router.get('/rides/:id', Ride.getOne);
-router.post('/rides/:id/request', (req, res) => {
-  res.status(200).json({ message: 'Your request has been recieved' });
-});
+
+// Create a ride offer
+router.post('/rides', Ride.create);
+
+// Make a request to join a ride.
+router.post('/rides/:id/requests', Ride.request);
 
 export default router;
