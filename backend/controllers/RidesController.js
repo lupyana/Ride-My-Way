@@ -1,4 +1,3 @@
-import RideModel from '../models/Ride';
 import db from '../db/index';
 
 const Ride = {

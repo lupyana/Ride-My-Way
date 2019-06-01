@@ -42,6 +42,34 @@ const createTables = () => {
     });
 };
 
+const createUser = () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS
+      users(
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(128) NOT NULL,
+        password VARCHAR(128) NOT NULL,
+        fname VARCHAR(128) NOT NULL,
+        lname VARCHAR(128) NOT NULL,
+        active numeric DEFAULT 0,
+        created_date TIMESTAMP NOT NULL DEFAULT NOW(),
+        modified_date TIMESTAMP NOT NULL DEFAULT NOW()
+      )`;
+
+  pool
+    .query(queryText)
+    .then((res) => {
+      console.log('here');
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log('here');
+
+      console.log(err);
+      pool.end();
+    });
+};
+
 /**
  * Drop Tables
  */
