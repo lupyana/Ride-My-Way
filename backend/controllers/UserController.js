@@ -46,6 +46,7 @@ const User = {
       })
       .catch(error => res.status(400).send(error));
   },
+
   verify(req, res) {
     if (!req.body.id || !req.body.code) {
       return res.status(400).send({ message: 'All fields are required' });
@@ -64,6 +65,7 @@ const User = {
       db.query(updatequery, [req.body.id, req.body.code]).then(result => res.status(200).send(true));
     });
   },
+
   login(req, res) {
     if (!req.body.email || !req.body.password) {
       return res.status(400).send({ message: 'All fields are required' });
@@ -88,6 +90,18 @@ const User = {
         expiresIn,
       });
       res.status(200).send({ user: authUser, access_token: accessToken, expires_in: expiresIn });
+    });
+  },
+
+  getRequests(req, res) {
+    const query = 'SELECT * FROM rides_requests WHERE ride_id = $1';
+    const values = [req.params.id];
+
+    db.query(query, values).then((result) => {
+      if (result.rows.length === 0) {
+        return res.status(400).send({ message: 'You have not offered any rides yet' });
+      }
+      res.status(200).send({ data: result.rows });
     });
   },
 };

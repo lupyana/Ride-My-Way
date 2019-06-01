@@ -3,6 +3,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 
 import Ride from '../controllers/RidesController';
+import User from '../controllers/UserController';
 
 const router = express.Router();
 const SECRET_KEY = 'secretkey23456';
@@ -43,5 +44,8 @@ router.post('/rides', Ride.create);
 
 // Make a request to join a ride.
 router.post('/rides/:id/requests', Ride.request);
+
+// Fetch all ride requests
+router.get('/users/rides/:id/requests', User.getRequests);
 
 export default router;
