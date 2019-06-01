@@ -1,5 +1,3 @@
-import moment from 'moment';
-import uuidv4 from 'uuid/v4';
 import RideModel from '../models/Ride';
 import db from '../db/index';
 
@@ -9,18 +7,10 @@ const Ride = {
       return res.status(400).send({ message: 'All fields are required' });
     }
     const query = `INSERT INTO
-      rides(id, ride_start, ride_to, ride_time, ride_with, created_date, modified_date)
-      VALUES($1, $2, $3, $4, $5, $6, $7)
+      rides(ride_start, ride_to, ride_time, ride_with)
+      VALUES($1, $2, $3, $4)
       returning *`;
-    const values = [
-      uuidv4(),
-      req.body.from,
-      req.body.to,
-      req.body.time,
-      req.body.with,
-      moment(new Date()),
-      moment(new Date()),
-    ];
+    const values = [req.body.from, req.body.to, req.body.time, req.body.with];
 
     db.query(query, values)
       .then(result => res.status(201).send({ message: 'Success: your offer has been published!' }))
