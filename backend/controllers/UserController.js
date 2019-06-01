@@ -8,27 +8,37 @@ const User = {
     if (!req.body.email || !req.body.password || !req.body.fname || !req.body.lname) {
       return res.status(400).send({ message: 'All fields are required' });
     }
-    const hash = bcrypt.hashSync(req.body.password, salt);
-    const query = `INSERT INTO
-      users(email, password, fname, lname)
-      VALUES($1, $2, $3, $4)
-      returning id`;
-    const values = [req.body.email, hash, req.body.fname, req.body.lname];
 
-    const query2 = `INSERT INTO
-      user_activation(user_id, code)
-      VALUES($1, $2)
-      returning *`;
-
-    const code = Math.floor(Math.random() * 90000) + 10000;
-
-    db.query(query, values)
+    // Check if existing
+    const query = 'SELECT * FROM users WHERE email = $1';
+    db.query(query, [req.body.email])
       .then((result) => {
-        db.query(query2, [result.rows[0].id, code]).then(result => res.status(201).send({
-          code,
-          message:
-              'We have sent a verification code to your email! Enter the code to complete the verification process',
-        }));
+        if (result.rows.length > 0) {
+          return res.status(400).send({ message: 'Email already exists' });
+        }
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        const query = `INSERT INTO
+          users(email, password, fname, lname)
+          VALUES($1, $2, $3, $4)
+          returning id`;
+        const values = [req.body.email, hash, req.body.fname, req.body.lname];
+
+        const query2 = `INSERT INTO
+          user_activation(user_id, code)
+          VALUES($1, $2)
+          returning *`;
+
+        const code = Math.floor(Math.random() * 90000) + 10000;
+
+        db.query(query, values)
+          .then((result) => {
+            db.query(query2, [result.rows[0].id, code]).then(result => res.status(201).send({
+              code,
+              message:
+                  'We have sent a verification code to your email! Enter the code to complete the verification process',
+            }));
+          })
+          .catch(error => res.status(400).send(error));
       })
       .catch(error => res.status(400).send(error));
   },
