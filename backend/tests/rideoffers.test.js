@@ -63,3 +63,13 @@ describe('Make a request to join a ride', () => {
       expect(response.body.message).toBe('Your request has been recieved');
     }));
 });
+
+// Test to join a ride
+describe('Accept or reject a ride request.', () => {
+  test('Should return a success message', () => request(app)
+    .post('/api/v1/users/rides/1/request/1')
+    .then((response) => {
+      expect(response).toBeDefined();
+      expect(response.statusCode).toBe(200);
+    }));
+});

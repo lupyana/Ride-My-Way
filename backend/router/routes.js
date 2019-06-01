@@ -48,4 +48,7 @@ router.post('/rides/:id/requests', Ride.request);
 // Fetch all ride requests
 router.get('/users/rides/:id/requests', User.getRequests);
 
+// Accept or reject a ride request.
+router.put('/users/rides/:ride_id/requests/:request_id', User.replyRequests);
+
 export default router;

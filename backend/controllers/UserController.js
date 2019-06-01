@@ -104,6 +104,25 @@ const User = {
       res.status(200).send({ data: result.rows });
     });
   },
+
+  replyRequests(req, res) {
+    const query = 'SELECT * FROM rides_requests WHERE ride_id = $1 AND id = $2';
+    const values = [req.params.ride_id, req.params.request_id];
+
+    db.query(query, values)
+      .then((result) => {
+        if (result.rows.length === 0) {
+          return res.status(400).send({ message: 'Ride does not exist' });
+        }
+
+        db.query('UPDATE rides_requests SET status = 1 WHERE  ride_id = $1 AND id = $2', values)
+          .then((result) => {
+            res.status(200).send(true);
+          })
+          .catch(error => error);
+      })
+      .catch(error => error);
+  },
 };
 
 export default User;
