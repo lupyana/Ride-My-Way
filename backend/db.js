@@ -42,7 +42,7 @@ const createTables = () => {
     });
 };
 
-const createUser = () => {
+const createUsers = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       users(
         id SERIAL PRIMARY KEY,
@@ -95,6 +95,7 @@ pool.on('remove', () => {
 module.exports = {
   createTables,
   dropTables,
+  createUsers,
 };
 
 require('make-runnable');
