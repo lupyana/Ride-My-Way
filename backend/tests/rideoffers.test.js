@@ -2,29 +2,6 @@ import request from 'supertest';
 import app from '../app';
 
 let rides = [];
-// Test to Retireve all ride offers
-describe('Fetch all ride offers', () => {
-  test('Should return an array of rides', () => request(app)
-    .get('/api/v1/rides')
-    .then((response) => {
-      expect(response).toBeDefined();
-      expect(response.statusCode).toBe(200);
-      expect(response.body.data).toBeArray();
-      rides = response.body;
-    }));
-});
-
-// Test to check a single ride offer
-describe('Fetch a missing ride offer', () => {
-  test('Should return an object with ride detail', () => request(app)
-    .get('/api/v1/rides/1')
-    .then((response) => {
-      expect(response).toBeDefined();
-      expect(response.statusCode).toBe(404);
-      expect(response.body.message).toBe('Ride not found');
-    }));
-});
-
 // Test to chech creating ride offer
 describe('Create a ride offer', () => {
   const newRide = {
@@ -44,6 +21,35 @@ describe('Create a ride offer', () => {
 
       // expect(response.body).toBeObject();
       // expect(response.body).toBeArrayOfSize(rides.length + 1);
+    }));
+});
+// Test to Retireve all ride offers
+describe('Fetch all ride offers', () => {
+  test('Should return an array of rides', () => request(app)
+    .get('/api/v1/rides')
+    .then((response) => {
+      expect(response).toBeDefined();
+      expect(response.statusCode).toBe(200);
+      expect(response.body.data).toBeArray();
+      rides = response.body;
+    }));
+});
+
+// Test to check a single ride offer
+describe('Fetch ride offer', () => {
+  test('Fetch missing ride', () => request(app)
+    .get('/api/v1/rides/9001')
+    .then((response) => {
+      expect(response).toBeDefined();
+      expect(response.statusCode).toBe(404);
+      expect(response.body.message).toBe('Ride not found');
+    }));
+  test('Fetch existing ride offer', () => request(app)
+    .get('/api/v1/rides/1')
+    .then((response) => {
+      expect(response).toBeDefined();
+      expect(response.statusCode).toBe(200);
+      expect(response.body.data).toBeObject();
     }));
 });
 

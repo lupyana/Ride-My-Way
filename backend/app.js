@@ -1,6 +1,4 @@
 import express from 'express';
-// const express = require('express');
-// const bodyParser = require('body-parser');
 import bodyParser from 'body-parser';
 
 import router from './router/routes';
@@ -13,4 +11,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1', router);
 
 export default app;
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`));

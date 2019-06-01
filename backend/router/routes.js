@@ -19,5 +19,6 @@ router.post('/rides/:id/request', (req, res) => {
 
 // User routes
 router.post('/auth/register', User.register);
+router.post('/auth/verify', User.verify);
 
 export default router;
