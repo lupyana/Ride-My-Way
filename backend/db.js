@@ -14,7 +14,7 @@ pool.on('connect', () => {
 /**
  * Create Tables
  */
-const createTables = () => {
+const createRideTables = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       rides(
         id SERIAL PRIMARY KEY,
@@ -42,7 +42,7 @@ const createTables = () => {
     });
 };
 
-const createUsers = () => {
+const createUsersTables = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       users(
         id SERIAL PRIMARY KEY,
@@ -70,6 +70,37 @@ const createUsers = () => {
     });
 };
 
+const createUsersActivationTable = () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS
+      user_activation(
+        id SERIAL PRIMARY KEY,
+        user_id VARCHAR(128) NOT NULL,
+        code VARCHAR(128) NOT NULL,
+        status numeric DEFAULT 0,
+        created_date TIMESTAMP NOT NULL DEFAULT NOW()
+      )`;
+
+  pool
+    .query(queryText)
+    .then((res) => {
+      console.log('here');
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log('here');
+
+      console.log(err);
+      pool.end();
+    });
+};
+// Create all Tables
+const createTables = () => {
+  createUsersTables();
+  createUsersActivationTable();
+  createRideTables();
+};
+
 /**
  * Drop Tables
  */
@@ -95,7 +126,9 @@ pool.on('remove', () => {
 module.exports = {
   createTables,
   dropTables,
-  createUsers,
+  createUsersTables,
+  createRideTables,
+  createUsersActivationTable,
 };
 
 require('make-runnable');
