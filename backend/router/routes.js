@@ -1,56 +1,54 @@
-const express = require('express');
+// get an instance of the express Router
+import express from 'express';
+import jwt from 'jsonwebtoken';
 
-const router = express.Router(); // get an instance of the express Router
-const rides = [
-  {
-    id: 1,
-    from: 'Upanga',
-    to: 'Buguruni',
-    with: 'Not Joe',
-    time: '1200',
-  },
-  {
-    id: 2,
-    from: 'Masaki',
-    to: 'Mbezi',
-    with: 'Anovic',
-    time: '1300',
-  },
-  {
-    id: 3,
-    from: 'Masaki',
-    to: 'Victoria',
-    with: 'Kevin Joe',
-    time: '1300',
-  },
-  {
-    id: 4,
-    from: 'Bamaga',
-    to: 'Mbezi',
-    with: 'Ben Teyga',
-    time: '1800',
-  },
-];
+import Ride from '../controllers/RidesController';
+import User from '../controllers/UserController';
 
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Hello world' });
+const router = express.Router();
+const SECRET_KEY = 'secretkey23456';
+
+// Custom middleware
+router.use((req, res, next) => {
+  // check header or url parameters or post parameters for token
+  const token = req.body.token || req.query.token || req.headers.authorization;
+  // decode token
+  if (token) {
+    // verifies secret and checks exp
+    jwt.verify(token, SECRET_KEY, (err, decoded) => {
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });
+      }
+      // if everything is good, save to request for use in other routes
+      req.decoded = decoded;
+      next();
+    });
+  } else {
+    // if there is no token
+    // return an error
+    return res.status(403).send({
+      success: false,
+      message: 'Dude where is your token.',
+    });
+  }
 });
 
-router.get('/rides', (req, res) => {
-  res.status(200).json({ rides });
-});
+// Fetch all available rides
+router.get('/rides', Ride.getAll);
 
-router.post('/rides', (req, res) => {
-  rides.push(req.body.newRide);
-  res.status(200).json({ rides });
-});
+// Fetch the details of a single ride
+router.get('/rides/:id', Ride.getOne);
 
-router.get('/rides/:id', (req, res) => {
-  res.status(200).json({ ride: rides[req.params.id] });
-});
+// Create a ride offer
+router.post('/rides', Ride.create);
 
-router.post('/rides/:id/request', (req, res) => {
-  res.status(200).json({ message: 'Your request has been recieved' });
-});
+// Make a request to join a ride.
+router.post('/rides/:id/requests', Ride.request);
 
-module.exports = router;
+// Fetch all ride requests
+router.get('/users/rides/:id/requests', User.getRequests);
+
+// Accept or reject a ride request.
+router.put('/users/rides/:ride_id/requests/:request_id', User.replyRequests);
+
+export default router;
