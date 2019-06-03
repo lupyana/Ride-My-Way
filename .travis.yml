@@ -8,8 +8,9 @@ before_script:
   - psql -c "CREATE database ridemyway;" -U postgres
   - psql -c "CREATE USER lupyana WITH PASSWORD 'developer';" -U postgres
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE ridemyway to lupyana;" -U postgres
-  - node backend/db.js createAllTables
 script:
-  - cd backend && yarn install && yarn test
+  - cd backend && yarn install
+  - node db.js createAllTables
+  - yarn test
 after_success:
   - yarn coveralls
