@@ -24,6 +24,8 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "pg": "^7.11.0",
+    "swagger-jsdoc": "^3.2.9",
+    "swagger-ui-express": "^4.0.5",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
