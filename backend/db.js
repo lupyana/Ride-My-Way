@@ -45,7 +45,7 @@ const createRidesRequestTable = () => {
         id SERIAL PRIMARY KEY,
         ride_id VARCHAR(128) NOT NULL,
         user_id VARCHAR(128) NOT NULL,
-        status VARCHAR(128) NOT NULL DEFAULT available,
+        status VARCHAR(128) NOT NULL DEFAULT 5,
         created_date TIMESTAMP NOT NULL DEFAULT NOW(),
         modified_date TIMESTAMP NOT NULL DEFAULT NOW()
       )`;
@@ -110,10 +110,10 @@ const createUserActivationTable = () => {
 };
 // Create all Tables
 const createAllTables = () => {
+  createRidesRequestTable();
   createUsersTable();
   createUserActivationTable();
   createRidesTable();
-  createRidesRequestTable();
 };
 
 /**
