@@ -3,7 +3,6 @@ import express from 'express';
 import User from '../controllers/UserController';
 
 const authRoutes = express.Router();
-// User routes
 
 /**
  * @swagger
