@@ -5,9 +5,8 @@ cache: yarn
 services:
   - postgresql
 before_script:
-  - psql -c "create database ridemyway;" -U postgres
+  - psql -c "CREATE database ridemyway;" -U postgres
   - psql -c "CREATE USER lupyana WITH PASSWORD 'developer';" -U postgres
-  - psql "GRANT ALL PRIVILEGES ON DATABASE ridemyway to lupyana;" -U postgres
-  - npm run build
+  - psql -c "GRANT ALL PRIVILEGES ON DATABASE ridemyway to lupyana;" -U postgres
 script:
   - cd backend && yarn install && yarn coveralls
