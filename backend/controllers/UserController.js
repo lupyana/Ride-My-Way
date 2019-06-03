@@ -99,7 +99,8 @@ const User = {
 
     db.query(query, values).then((result) => {
       if (result.rows.length === 0) {
-        return res.status(400).send({ message: 'You have not offered any rides yet' });
+        return res.status(200).send({ message: 'You have not offered any rides yet',
+       data: [] });
       }
       res.status(200).send({ data: result.rows });
     });
