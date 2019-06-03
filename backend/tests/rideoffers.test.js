@@ -2,7 +2,7 @@ import request from 'supertest';
 import app from '../app';
 
 let rides = [];
-let token = ';';
+let token = '';
 const newUser = {
   email: 'johndoe@exaple.com',
   password: 'password',
@@ -133,10 +133,14 @@ describe('Fetch ride offer', () => {
 
 // Test to join a ride
 describe('Make a request to join a ride', () => {
-  test('Should return a success message', () => request(app)
+  test('Should join a ride', () => request(app)
     .post('/api/v1/rides/1/request')
     .set({ Authorization: token })
     .set('Accept', 'application/json')
+    .send({
+      ride_id: 1,
+      user_id: 1,
+    })
     .then((response) => {
       expect(response).toBeDefined();
       expect(response.statusCode).toBe(200);
@@ -147,9 +151,12 @@ describe('Make a request to join a ride', () => {
 // Test to join a ride
 describe('Accept or reject a ride request.', () => {
   test('Should return a success message', () => request(app)
-    .post('/api/v1/users/rides/1/request/1')
+    .put('/api/v1/users/rides/1/requests/1')
     .set({ Authorization: token })
     .set('Accept', 'application/json')
+    .send({
+      status: 0,
+    })
     .then((response) => {
       expect(response).toBeDefined();
       expect(response.statusCode).toBe(200);
