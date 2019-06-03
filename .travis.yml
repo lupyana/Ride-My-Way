@@ -7,7 +7,7 @@ services:
 before_script:
   - psql -c "create database ridemyway;" -U postgres
   - psql -c "CREATE USER lupyana WITH PASSWORD 'developer';" -U postgres
-  - psql "GRANT ALL PRIVILEGES ON DATABASE 'test_database' to lupyana;" -U postgres
+  - psql "GRANT ALL PRIVILEGES ON DATABASE 'ridemyway' to lupyana;" -U postgres
   - npm run build
 script:
   - cd backend && yarn install && yarn coveralls
