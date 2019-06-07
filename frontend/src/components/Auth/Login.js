@@ -12,9 +12,9 @@ class Login extends Component {
       .post("/auth/login", { email, password })
       .then(response => {
         console.log(response.data);
-        localStorage.authToken = response.data.access_token;
+        localStorage.setItem("authToken", response.data.access_token);
         localStorage.setItem("user", JSON.stringify(response.data.user));
-        this.props.history.push("/dashboard");
+        this.props.history.push("/");
       })
       .catch(error => error);
   }

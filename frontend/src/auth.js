@@ -11,7 +11,7 @@ class Auth {
     cb();
   }
   isAuthenticated() {
-    if (localStorage.getItem("token") && localStorage.getItem("user")) {
+    if (localStorage.getItem("authToken") && localStorage.getItem("user")) {
       this.authenticated = true;
     }
     return this.authenticated;
