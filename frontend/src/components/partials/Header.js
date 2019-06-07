@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
+import auth from "../../auth";
 class Header extends Component {
+  logOut(e) {
+    e.preventDefault();
+    auth.logOut(() => {});
+    // this.props.history.push("/login");
+  }
   render() {
     return (
       <div>
@@ -25,9 +30,7 @@ class Header extends Component {
                   <NavLink exact to="/profile">
                     Profile
                   </NavLink>
-                  <NavLink exact to="/">
-                    Log Out
-                  </NavLink>
+                  <NavLink onClick={this.logOut}>Log Out</NavLink>
                 </div>
               </div>
             </div>

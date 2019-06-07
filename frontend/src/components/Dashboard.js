@@ -38,7 +38,10 @@ class Dashboard extends Component {
         <div className="width-80p center ">
           <div className="offer-list">
             {this.state.rides.map(ride => (
-              <NavLink to={{ pathname: "view-ride", rideDetails: ride }}>
+              <NavLink
+                to={{ pathname: "view-ride", rideDetails: ride }}
+                key={ride.id}
+              >
                 <Offer ride={ride} />
               </NavLink>
             ))}

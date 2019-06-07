@@ -6,7 +6,8 @@ class Auth {
     this.authenticated = true;
     cb();
   }
-  logut(cb) {
+  logOut(cb) {
+    localStorage.clear();
     this.authenticated = false;
     cb();
   }

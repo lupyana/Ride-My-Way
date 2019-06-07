@@ -53,7 +53,7 @@ class Login extends Component {
               </label>
               <div className="spacer">
                 <input
-                  type="text"
+                  type="password"
                   ref={input => (this.password = input)}
                   name="password"
                   id="loginPassword"
