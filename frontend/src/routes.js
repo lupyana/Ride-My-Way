@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from "react-router-dom";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Forgot from "./components/Auth/Forgot";
@@ -9,14 +9,16 @@ import Profile from "./components/Profile";
 import Notifications from "./components/Notifications";
 
 const routes = (
-    <Route exact path='/' component={Login}> />
-    <Route exact path='/register' component={Register} />
-    <Route exact path='/forgot-password' component={Forgot} />
-    <Route exact path='/dashboard' component={Dashboard} />
-    <Route exact path='/view-ride' component={ViewRide} />
-    <Route exact path='/profile' component={Profile} />
-    <Route exact path='/notifications' component={Notifications} />
-    <Route exact path='/verification' component={Verify} />
-)
+  <Route path="/" component={App}>
+    <Route path="auth/login" component={Login} />
+    <Route path="register" component={Register} />
+    <Route path="forgot-password" component={Forgot} />
+    <Route path="dashboard" component={Dashboard} />
+    <Route path="view-ride" component={ViewRide} />
+    <Route path="profile" component={Profile} />
+    <Route path="notifications" component={Notifications} />
+    <Route path="verification" component={Verify} />
+  </Route>
+);
 
 export default routes;
