@@ -120,7 +120,7 @@ const createAllTables = () => {
  * Drop Tables
  */
 const dropTables = () => {
-  const queryText = 'DROP TABLE IF EXISTS rides';
+  const queryText = 'DROP TABLE IF EXISTS rides, users, user_activation, rides_requests';
   pool
     .query(queryText)
     .then((res) => {
