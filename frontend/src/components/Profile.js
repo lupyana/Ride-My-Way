@@ -1,18 +1,31 @@
 import React, { Component } from "react";
 import Header from "./partials/Header";
 import "../css/profile.css";
+import axios from "axios";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      rides: []
     };
   }
   componentDidMount() {
     this.setState({
       user: JSON.parse(localStorage.user)
     });
+    axios
+      .get("/users/" + JSON.parse(localStorage.user).id + "/rides/history", {
+        headers: {
+          Authorization: localStorage.authToken
+        }
+      })
+      .then(response => {
+        this.setState({
+          rides: response.data.data
+        });
+      });
   }
   render() {
     return (
@@ -52,46 +65,16 @@ class Profile extends Component {
                   <th> To </th>
                   <th> Fare</th>
                 </tr>
-                <tr>
-                  <td> dd/mm/yyy </td>
-                  <td> Kevin </td>
-                  <td> Me </td>
-                  <td> Masaki </td>
-                  <td> Morocco </td>
-                  <td> 2,000 </td>
-                </tr>
-                <tr>
-                  <td> dd/mm/yyy </td>
-                  <td> Kevin </td>
-                  <td> Me </td>
-                  <td> Masaki </td>
-                  <td> Morocco </td>
-                  <td> 2,000 </td>
-                </tr>
-                <tr>
-                  <td> dd/mm/yyy </td>
-                  <td> Kevin </td>
-                  <td> Me </td>
-                  <td> Masaki </td>
-                  <td> Morocco </td>
-                  <td> 2,000 </td>
-                </tr>
-                <tr>
-                  <td> dd/mm/yyy </td>
-                  <td> Kevin </td>
-                  <td> Me </td>
-                  <td> Masaki </td>
-                  <td> Morocco </td>
-                  <td> 2,000 </td>
-                </tr>
-                <tr>
-                  <td> dd/mm/yyy </td>
-                  <td> Kevin </td>
-                  <td> Me </td>
-                  <td> Masaki </td>
-                  <td> Morocco </td>
-                  <td> 2,000 </td>
-                </tr>
+                {this.state.rides.map(ride => (
+                  <tr key={ride.id}>
+                    <td> {ride.created_date} </td>
+                    <td> Kevin </td>
+                    <td> {ride.ride_with} </td>
+                    <td> Masaki </td>
+                    <td> Morocco </td>
+                    <td> 2,000 </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

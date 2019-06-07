@@ -105,6 +105,17 @@ const User = {
     });
   },
 
+  getHistory(req, res) {
+    const query = 'SELECT * FROM rides_requests WHERE status = $1 AND user_id = $2';
+    const values = [1, req.params.user_id];
+
+    db.query(query, values).then((result) => {
+      if (result.rows.length === 0) {
+        return res.status(200).send({ message: 'Nothing to see here', data: [] });
+      }
+      res.status(200).send({ data: result.rows });
+    });
+  },
   replyRequests(req, res) {
     const query = 'SELECT * FROM rides_requests WHERE ride_id = $1 AND id = $2';
     const values = [req.params.ride_id, req.params.request_id];
