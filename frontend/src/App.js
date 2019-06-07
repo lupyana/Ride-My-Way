@@ -20,10 +20,10 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/forgot-password" component={Forgot} />
+        <Route path="/verification" component={Verify} />
         <PrivateRoute exact path="/view-ride" component={ViewRide} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute exact path="/notifications" component={Notifications} />
-        <PrivateRoute path="/verification" component={Verify} />
         <PrivateRoute exact path="/" component={Dashboard} />
         <Route component={error404} />
       </Switch>

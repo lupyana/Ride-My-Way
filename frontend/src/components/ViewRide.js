@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import Header from "./partials/Header";
 import MapView from "./partials/MapView";
+import axios from "axios";
 
 // import { NavLink } from 'react-router-dom';
 import "../css/ride.css";
 
 class ViewRide extends Component {
+  componentDidMount() {
+    axios
+      .get("/rides/" + this.props.location.rideDetails.id, {
+        headers: {
+          Authorization: localStorage.authToken
+        }
+      })
+      .then(response => {
+        this.setState({
+          rides: response.data.data
+        });
+      });
+  }
   render() {
     return (
       <div>

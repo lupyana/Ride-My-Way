@@ -6,7 +6,12 @@ class Register extends Component {
   register(e) {
     e.preventDefault();
     if (this.checkpasswords(this.re_password.value, this.password.value)) {
-      this.registeUser(this.email.value, this.password.value);
+      this.registeUser(
+        this.fname.value,
+        this.lname.value,
+        this.email.value,
+        this.password.value
+      );
     }
   }
   checkpasswords(pass, pass2) {
@@ -16,11 +21,12 @@ class Register extends Component {
       alert("Passwords do not match");
     }
   }
-  registeUser(email, password) {
+  registeUser(fname, lname, email, password) {
     axios
-      .post("/auth/register", { email, password })
+      .post("/auth/register", { fname, lname, email, password })
       .then(response => {
         console.log(response.data);
+        this.props.history.push("/verification");
       })
       .catch(error => error);
   }
@@ -39,6 +45,34 @@ class Register extends Component {
               this.register(e);
             }}
           >
+            <label htmlFor="fname" className="input-label mb-20">
+              First Name:
+            </label>
+            <div className="spacer">
+              <input
+                ref={input => (this.fname = input)}
+                type="text"
+                name="fname"
+                id="fname"
+                placeholder="First Name"
+                className="input-box"
+                required
+              />
+            </div>
+            <label htmlFor="lname" className="input-label mb-20">
+              Last Name:
+            </label>
+            <div className="spacer">
+              <input
+                ref={input => (this.lname = input)}
+                type="text"
+                name="lname"
+                id="lname"
+                placeholder="Last Name"
+                className="input-box"
+                required
+              />
+            </div>
             <label htmlFor="loginInput" className="input-label mb-20">
               Email address{" "}
             </label>
