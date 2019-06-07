@@ -1,8 +1,19 @@
 import React, { Component } from "react";
-import Header from "./partials/Header"
-import '../css/profile.css';
+import Header from "./partials/Header";
+import "../css/profile.css";
 
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    };
+  }
+  componentDidMount() {
+    this.setState({
+      user: JSON.parse(localStorage.user)
+    });
+  }
   render() {
     return (
       <div>
@@ -15,9 +26,12 @@ class Profile extends Component {
                 <img src="https://via.placeholder.com/150.png" alt="" />
               </div>
               <div className="about">
-                <p>John Doe</p>
+                <p>
+                  {" "}
+                  {this.state.user.fname},{this.state.user.lname}
+                </p>
                 <p> +255 123 456 </p>
-                <p> johndoe@one.com </p>
+                <p> {this.state.user.email} </p>
               </div>
             </div>
             <div className="stats">
@@ -26,61 +40,61 @@ class Profile extends Component {
               <p>Total rides givien to others: 12 </p>
             </div>
           </div>
-            <div className="text-center">
-              <h2>Previously on ride my way</h2>
-              <table className="ride-list">
-                <tbody>
-                  <tr>
-                    <th> Date </th>
-                    <th> Driver </th>
-                    <th> Passenger </th>
-                    <th> From </th>
-                    <th> To </th>
-                    <th> Fare</th>
-                  </tr>
-                  <tr>
-                    <td> dd/mm/yyy </td>
-                    <td> Kevin </td>
-                    <td> Me </td>
-                    <td> Masaki </td>
-                    <td> Morocco </td>
-                    <td> 2,000 </td>
-                  </tr>
-                  <tr>
-                    <td> dd/mm/yyy </td>
-                    <td> Kevin </td>
-                    <td> Me </td>
-                    <td> Masaki </td>
-                    <td> Morocco </td>
-                    <td> 2,000 </td>
-                  </tr>
-                  <tr>
-                    <td> dd/mm/yyy </td>
-                    <td> Kevin </td>
-                    <td> Me </td>
-                    <td> Masaki </td>
-                    <td> Morocco </td>
-                    <td> 2,000 </td>
-                  </tr>
-                  <tr>
-                    <td> dd/mm/yyy </td>
-                    <td> Kevin </td>
-                    <td> Me </td>
-                    <td> Masaki </td>
-                    <td> Morocco </td>
-                    <td> 2,000 </td>
-                  </tr>
-                  <tr>
-                    <td> dd/mm/yyy </td>
-                    <td> Kevin </td>
-                    <td> Me </td>
-                    <td> Masaki </td>
-                    <td> Morocco </td>
-                    <td> 2,000 </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div className="text-center">
+            <h2>Previously on ride my way</h2>
+            <table className="ride-list">
+              <tbody>
+                <tr>
+                  <th> Date </th>
+                  <th> Driver </th>
+                  <th> Passenger </th>
+                  <th> From </th>
+                  <th> To </th>
+                  <th> Fare</th>
+                </tr>
+                <tr>
+                  <td> dd/mm/yyy </td>
+                  <td> Kevin </td>
+                  <td> Me </td>
+                  <td> Masaki </td>
+                  <td> Morocco </td>
+                  <td> 2,000 </td>
+                </tr>
+                <tr>
+                  <td> dd/mm/yyy </td>
+                  <td> Kevin </td>
+                  <td> Me </td>
+                  <td> Masaki </td>
+                  <td> Morocco </td>
+                  <td> 2,000 </td>
+                </tr>
+                <tr>
+                  <td> dd/mm/yyy </td>
+                  <td> Kevin </td>
+                  <td> Me </td>
+                  <td> Masaki </td>
+                  <td> Morocco </td>
+                  <td> 2,000 </td>
+                </tr>
+                <tr>
+                  <td> dd/mm/yyy </td>
+                  <td> Kevin </td>
+                  <td> Me </td>
+                  <td> Masaki </td>
+                  <td> Morocco </td>
+                  <td> 2,000 </td>
+                </tr>
+                <tr>
+                  <td> dd/mm/yyy </td>
+                  <td> Kevin </td>
+                  <td> Me </td>
+                  <td> Masaki </td>
+                  <td> Morocco </td>
+                  <td> 2,000 </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );

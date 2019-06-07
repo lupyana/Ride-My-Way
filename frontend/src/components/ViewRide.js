@@ -16,12 +16,12 @@ class ViewRide extends Component {
             <div className="side-side">
               <div className="width-70">
                 <h2>Ride Details</h2>
-                <p>Driver: {this.props.location.rideDetails.with}</p>
+                <p>Driver: {this.props.location.rideDetails.ride_with}</p>
                 <p>
-                  From: {this.props.location.rideDetails.from} to{" "}
-                  {this.props.location.to}
+                  From: {this.props.location.rideDetails.ride_start} to{" "}
+                  {this.props.location.ride_to}
                 </p>
-                <p>Time: {this.props.location.rideDetails.time} hrs</p>
+                <p>Time: {this.props.location.rideDetails.ride_time} hrs</p>
               </div>
               <div className=" width-30 price-action text-center">
                 <div className="width-100">
