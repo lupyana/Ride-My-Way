@@ -68,11 +68,11 @@ class Profile extends Component {
                 {this.state.rides.map(ride => (
                   <tr key={ride.id}>
                     <td> {ride.created_date} </td>
-                    <td> Kevin </td>
                     <td> {ride.ride_with} </td>
-                    <td> Masaki </td>
-                    <td> Morocco </td>
-                    <td> 2,000 </td>
+                    <td> Me </td>
+                    <td> {ride.ride_start} </td>
+                    <td> {ride.ride_to} </td>
+                    <td> </td>
                   </tr>
                 ))}
               </tbody>
