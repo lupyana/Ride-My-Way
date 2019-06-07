@@ -43,7 +43,7 @@ const createRidesRequestTable = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       rides_requests(
         id SERIAL PRIMARY KEY,
-        ride_id VARCHAR(128) NOT NULL,
+        ride_id integer NOT NULL,
         user_id VARCHAR(128) NOT NULL,
         status VARCHAR(128) NOT NULL DEFAULT 5,
         created_date TIMESTAMP NOT NULL DEFAULT NOW(),

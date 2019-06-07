@@ -106,7 +106,7 @@ const User = {
   },
 
   getHistory(req, res) {
-    const query = 'SELECT * FROM rides_requests WHERE status = $1 AND user_id = $2';
+    const query = 'SELECT * FROM rides_requests INNER JOIN rides ON (rides_requests.ride_id = rides.id) WHERE (rides_requests.status = $1 AND rides_requests.user_id = $2)';
     const values = [1, req.params.user_id];
 
     db.query(query, values).then((result) => {
