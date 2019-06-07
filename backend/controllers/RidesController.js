@@ -59,7 +59,7 @@ const Ride = {
     db.query(query, [req.body.user_id, req.body.ride_id])
       .then((result) => {
         if (result.rows[0]) {
-          return res.status(404).send({ message: 'Your have already requested to join this ride' });
+          return res.status(400).send({ message: 'Your have already requested to join this ride' });
         }
         const query = 'INSERT INTO rides_requests (user_id, ride_id) VALUES ($1, $2)';
         db.query(query, [req.body.user_id, req.body.ride_id])

@@ -6,8 +6,8 @@
   "author": "Lupyana Mbembati",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test": "jest --detectOpenHandles --forceExit",
+    "coveralls": "jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
     "dev": "babel-watch app.js",
     "build": "babel app.js --out-dir build"
   },
@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
@@ -24,6 +25,8 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "pg": "^7.11.0",
+    "swagger-jsdoc": "^3.2.9",
+    "swagger-ui-express": "^4.0.5",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
