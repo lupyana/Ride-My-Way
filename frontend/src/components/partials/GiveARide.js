@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../css/form.css";
-
+import axios from "axios";
 class GiveARide extends Component {
   openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -12,12 +12,19 @@ class GiveARide extends Component {
 
   addItem(e) {
     e.preventDefault();
-    this.props.handler({
-      from: this.ride_start.value,
-      to: this.ride_destination.value,
-      with: "John Doe",
-      time: this.ride_fare.value
-    });
+    axios({
+      method: "post", //you can set what request you want to be
+      url: "rides",
+      data: {
+        from: this.ride_start.value,
+        to: this.ride_destination.value,
+        with: "John Doe",
+        time: this.ride_fare.value
+      },
+      headers: {
+        Authorization: localStorage.authToken
+      }
+    }).then(response => response);
 
     //reset the form
     this.give_ride_form.reset();
