@@ -13,7 +13,8 @@ class Dashboard extends Component {
       rides: []
     };
   }
-  componentDidMount() {
+
+  fetchNewData() {
     axios
       .get("/rides", {
         headers: {
@@ -26,10 +27,11 @@ class Dashboard extends Component {
         });
       });
   }
+  componentDidMount() {
+    this.fetchNewData();
+  }
   handler(someValue) {
-    this.setState({
-      rides: [...this.state.rides, someValue]
-    });
+    this.fetchNewData();
   }
   render() {
     return (

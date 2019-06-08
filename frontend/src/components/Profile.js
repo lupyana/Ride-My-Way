@@ -63,7 +63,6 @@ class Profile extends Component {
                   <th> Passenger </th>
                   <th> From </th>
                   <th> To </th>
-                  <th> Fare</th>
                 </tr>
                 {this.state.rides.map(ride => (
                   <tr key={ride.id}>

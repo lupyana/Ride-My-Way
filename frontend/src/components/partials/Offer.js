@@ -2,10 +2,6 @@ import React, { Component } from "react";
 // import { NavLink } from 'react-router-dom';
 
 class Offer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="offer">
@@ -23,7 +19,8 @@ class Offer extends Component {
           </div>
           <div className="ride-offerer">
             <div className="width-50 ride-start mb-10">
-              <span className="avatar">With: </span> {this.props.ride.ride_with}
+              <span className="avatar">With: </span> {this.props.ride.fname}
+              {this.props.ride.lname}
             </div>
             <div className="width-50 ride-time text-right mb-10">
               Rating: some stars

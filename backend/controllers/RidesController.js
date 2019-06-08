@@ -17,7 +17,7 @@ const Ride = {
   },
 
   getAll(req, res) {
-    const query = 'SELECT * FROM rides';
+    const query = 'SELECT * FROM rides INNER JOIN users ON (rides.ride_with = users.id)';
     db.query(query)
       .then(result => res.status(200).json({ data: result.rows }))
       .catch(error => res.status(400).send(error));

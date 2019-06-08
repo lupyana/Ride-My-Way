@@ -7,6 +7,47 @@ import axios from "axios";
 import "../css/ride.css";
 
 class ViewRide extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rides: []
+    };
+    this.requestRide = this.requestRide.bind(this);
+  }
+  renderInputField() {
+    if (this.state.rides.ride_with == JSON.parse(localStorage.user).id) {
+      return null;
+    } else {
+      return (
+        <button
+          type="button"
+          name="button"
+          className="input-button"
+          onClick={this.requestRide}
+        >
+          REQUEST RIDE
+        </button>
+      );
+    }
+  }
+  requestRide() {
+    axios({
+      method: "post", //you can set what request you want to be
+      url: "/rides/" + this.props.location.rideDetails.id + "/request",
+      data: {
+        ride_id: this.props.location.rideDetails.id,
+        user_id: JSON.parse(localStorage.user).id
+      },
+      headers: {
+        Authorization: localStorage.authToken
+      }
+    })
+      .then(response => {
+        alert("request has been recieved");
+      })
+      .catch(error => alert(error.message));
+  }
+
   componentDidMount() {
     axios
       .get("/rides/" + this.props.location.rideDetails.id, {
@@ -30,7 +71,10 @@ class ViewRide extends Component {
             <div className="side-side">
               <div className="width-70">
                 <h2>Ride Details</h2>
-                <p>Driver: {this.props.location.rideDetails.ride_with}</p>
+                <p>
+                  Driver: {this.props.location.rideDetails.fname}{" "}
+                  {this.props.location.rideDetails.lname}{" "}
+                </p>
                 <p>
                   From: {this.props.location.rideDetails.ride_start} to{" "}
                   {this.props.location.ride_to}
@@ -38,12 +82,7 @@ class ViewRide extends Component {
                 <p>Time: {this.props.location.rideDetails.ride_time} hrs</p>
               </div>
               <div className=" width-30 price-action text-center">
-                <div className="width-100">
-                  <p>Price: TZS 12,000 /=</p>
-                  <button type="button" name="button" className="input-button">
-                    REQUEST RIDE
-                  </button>
-                </div>
+                <div className="width-100">{this.renderInputField()}</div>
               </div>
             </div>
             <div className="width-50 mb-20">

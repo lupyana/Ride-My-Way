@@ -18,14 +18,14 @@ class GiveARide extends Component {
       data: {
         from: this.ride_start.value,
         to: this.ride_destination.value,
-        with: "John Doe",
-        time: this.ride_fare.value
+        with: JSON.parse(localStorage.user).id,
+        time: this.ride_time.value
       },
       headers: {
         Authorization: localStorage.authToken
       }
     }).then(response => response);
-
+    this.props.handler();
     //reset the form
     this.give_ride_form.reset();
 
@@ -80,17 +80,6 @@ class GiveARide extends Component {
               type="text"
               placeholder="Time"
               name="ride_time"
-              required
-            />
-
-            <label htmlFor="ride_fare">
-              <b>Asking price</b>
-            </label>
-            <input
-              type="text"
-              ref={input => (this.ride_fare = input)}
-              placeholder="Price"
-              name="ride_fare"
               required
             />
 
