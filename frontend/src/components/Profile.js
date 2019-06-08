@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./partials/Header";
 import "../css/profile.css";
 import axios from "axios";
+import moment from "moment";
 
 class Profile extends Component {
   constructor(props) {
@@ -49,8 +50,7 @@ class Profile extends Component {
             </div>
             <div className="stats">
               <h2>Some few stats about you: </h2>
-              <p>Total rides taken: 12 </p>
-              <p>Total rides givien to others: 12 </p>
+              <p>Total rides taken: {this.state.rides.length} </p>
             </div>
           </div>
           <div className="text-center">
@@ -58,7 +58,7 @@ class Profile extends Component {
             <table className="ride-list">
               <tbody>
                 <tr>
-                  <th> Date </th>
+                  <th> On </th>
                   <th> Driver </th>
                   <th> Passenger </th>
                   <th> From </th>
@@ -67,7 +67,13 @@ class Profile extends Component {
                 </tr>
                 {this.state.rides.map(ride => (
                   <tr key={ride.id}>
-                    <td> {ride.created_date} </td>
+                    <td>
+                      {" "}
+                      {moment().format(
+                        "dddd, MMMM Do YYYY",
+                        ride.created_date
+                      )}{" "}
+                    </td>
                     <td> {ride.ride_with} </td>
                     <td> Me </td>
                     <td> {ride.ride_start} </td>
