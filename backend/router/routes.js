@@ -155,18 +155,18 @@ router.post('/rides', Ride.create);
  */
 router.post('/rides/:id/request', Ride.request);
 
-// Fetch all ride requests
+// Fetch all ride requests by ud
 /**
  * @swagger
  *
- * /api/vi/users/rides/{ride_id}/requests:
+ * /api/vi/users/rides/{user_id}/requests:
  *   get:
  *     tags:
  *       - "Rides"
- *     summary: "Fetch all ride requests"
+ *     summary: "Fetch all ride requests using ride id"
  *     description: This route should return a list of ride requests and statuses
  *     parameters:
- *      - name: "ride_id"
+ *      - name: "user_id"
  *        in: "path"
  *        description: "ID of ride to return"
  *        required: true

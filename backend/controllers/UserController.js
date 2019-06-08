@@ -94,7 +94,7 @@ const User = {
   },
 
   getRequests(req, res) {
-    const query = 'SELECT * FROM rides_requests WHERE ride_id = $1';
+    const query = 'SELECT * FROM rides_requests INNER JOIN rides ON (rides_requests.ride_id = rides.id) WHERE user_id = $1';
     const values = [req.params.id];
 
     db.query(query, values).then((result) => {

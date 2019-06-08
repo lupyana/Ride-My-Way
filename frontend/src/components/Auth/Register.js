@@ -92,7 +92,7 @@ class Register extends Component {
             </label>
             <div className="spacer">
               <input
-                type="text"
+                type="password"
                 name="password"
                 ref={input => (this.password = input)}
                 id="loginPassword"
@@ -106,7 +106,7 @@ class Register extends Component {
             </label>
             <div className="spacer">
               <input
-                type="text"
+                type="password"
                 ref={input => (this.re_password = input)}
                 name="re_password"
                 id="loginPasswordConfirm"

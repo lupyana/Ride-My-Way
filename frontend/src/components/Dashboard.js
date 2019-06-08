@@ -30,7 +30,7 @@ class Dashboard extends Component {
   componentDidMount() {
     this.fetchNewData();
   }
-  handler(someValue) {
+  handler() {
     this.fetchNewData();
   }
   render() {
