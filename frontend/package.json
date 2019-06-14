@@ -12,7 +12,8 @@
   },
   "engines": {
     "node": "8.15.1",
-    "npm": "6.4.1"
+    "npm": "6.4.1",
+    "yarn": "1.12.3"
   },
   "scripts": {
     "start": "react-scripts start",
