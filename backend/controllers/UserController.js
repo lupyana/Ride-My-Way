@@ -94,7 +94,19 @@ const User = {
   },
 
   getRequests(req, res) {
-    const query = 'SELECT * FROM rides_requests WHERE ride_id = $1';
+    const query = 'SELECT * FROM rides_requests INNER JOIN rides ON (rides_requests.ride_id = rides.id) WHERE user_id = $1';
+    const values = [req.params.id];
+
+    db.query(query, values).then((result) => {
+      if (result.rows.length === 0) {
+        return res.status(200).send({ message: 'You have not requested any rides yet', data: [] });
+      }
+      res.status(200).send({ data: result.rows });
+    });
+  },
+
+  getOffers(req, res) {
+    const query = 'SELECT * FROM rides_requests LEFT JOIN rides ON (rides_requests.ride_id = rides.id) WHERE rides.ride_with = $1';
     const values = [req.params.id];
 
     db.query(query, values).then((result) => {
@@ -105,6 +117,17 @@ const User = {
     });
   },
 
+  getHistory(req, res) {
+    const query = 'SELECT * FROM rides_requests INNER JOIN rides ON (rides_requests.ride_id = rides.id) WHERE (rides_requests.status = $1 AND rides_requests.user_id = $2)';
+    const values = [1, req.params.user_id];
+
+    db.query(query, values).then((result) => {
+      if (result.rows.length === 0) {
+        return res.status(200).send({ message: 'Nothing to see here', data: [] });
+      }
+      res.status(200).send({ data: result.rows });
+    });
+  },
   replyRequests(req, res) {
     const query = 'SELECT * FROM rides_requests WHERE ride_id = $1 AND id = $2';
     const values = [req.params.ride_id, req.params.request_id];
@@ -116,7 +139,7 @@ const User = {
         }
 
         db.query('UPDATE rides_requests SET status = 1 WHERE  ride_id = $1 AND id = $2', values)
-          .then(result => res.status(200).send(true))
+          .then(result => res.status(200).send('true'))
           .catch(error => res.status(400).send(error));
       })
       .catch(error => error);

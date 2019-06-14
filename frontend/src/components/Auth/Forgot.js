@@ -1,21 +1,32 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 class Forgot extends Component {
   render() {
-    return(
+    return (
       <div className="width-600 center sign-in-box">
         <div className="text-center">
-            <h2>Forgot Password</h2>
+          <h2>Forgot Password</h2>
+          It happens sometime
         </div>
         <div className="">
           <form className="" action="" method="post">
-            <label htmlFor="loginInput" className="input-label mb-20">Email address or mobile number</label>
+            <label htmlFor="loginInput" className="input-label mb-20">
+              Email address{" "}
+            </label>
             <div className="spacer">
-             <input type="text" name="user" id="loginInput" placeholder="Email or Phonenumber" className="input-box" />
+              <input
+                type="text"
+                name="user"
+                id="loginInput"
+                placeholder="Email"
+                className="input-box"
+              />
             </div>
             <NavLink exact to="/">
-              <button type="button" name="button" className="input-button">Reset Password</button>
+              <button type="button" name="button" className="input-button">
+                Reset Password
+              </button>
             </NavLink>
           </form>
         </div>

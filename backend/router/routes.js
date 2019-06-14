@@ -155,18 +155,18 @@ router.post('/rides', Ride.create);
  */
 router.post('/rides/:id/request', Ride.request);
 
-// Fetch all ride requests
+// Fetch all ride requests by ud
 /**
  * @swagger
  *
- * /api/vi/users/rides/{ride_id}/requests:
+ * /api/vi/users/rides/{user_id}/requests:
  *   get:
  *     tags:
  *       - "Rides"
- *     summary: "Fetch all ride requests"
+ *     summary: "Fetch all ride requests using ride id"
  *     description: This route should return a list of ride requests and statuses
  *     parameters:
- *      - name: "ride_id"
+ *      - name: "user_id"
  *        in: "path"
  *        description: "ID of ride to return"
  *        required: true
@@ -180,6 +180,58 @@ router.post('/rides/:id/request', Ride.request);
  *         description: Unauthorized, token was not provided
  */
 router.get('/users/rides/:id/requests', User.getRequests);
+
+// Fetch all ride offers by ud
+/**
+ * @swagger
+ *
+ * /api/vi/users/rides/{user_id}/offers:
+ *   get:
+ *     tags:
+ *       - "Rides"
+ *     summary: "Fetch all ride offers using ride id"
+ *     description: This route should return a list of ride offers and statuses
+ *     parameters:
+ *      - name: "user_id"
+ *        in: "path"
+ *        description: "ID of user"
+ *        required: true
+ *        type: "integer"
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Successfull retrieval
+ *       401:
+ *         description: Unauthorized, token was not provided
+ */
+router.get('/users/rides/:id/offers', User.getOffers);
+
+// Fetch users ride history
+/**
+ * @swagger
+ *
+ * /api/vi/users/{user_id}/rides/history:
+ *   get:
+ *     tags:
+ *       - "Rides"
+ *     summary: "Fetch users ride history"
+ *     description: This route should return a list of rides user has taken before
+ *     parameters:
+ *      - name: "user_id"
+ *        in: "path"
+ *        description: "ID of ride to return"
+ *        required: true
+ *        type: "integer"
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Successfull retrieval
+ *       401:
+ *         description: Unauthorized, token was not provided
+ */
+router.get('/users/:user_id/rides/history', User.getHistory);
 
 // Accept or reject a ride request.
 // Fetch all ride requests
