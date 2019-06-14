@@ -16,6 +16,11 @@
       "jest-extended"
     ]
   },
+  "engines": {
+    "node": "8.15.1",
+    "npm": "6.4.1",
+    "yarn": "1.12.3"
+  },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.6",
