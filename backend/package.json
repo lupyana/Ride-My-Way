@@ -10,7 +10,7 @@
     "coveralls": "jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
     "dev": "babel-watch app.js",
     "build": "babel app.js --out-dir build",
-    "start": "node app.js"
+    "start": "babel-watch app.js"
   },
   "jest": {
     "setupFilesAfterEnv": [
