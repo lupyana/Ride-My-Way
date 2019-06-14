@@ -42,7 +42,7 @@ class Profile extends Component {
               <div className="about">
                 <p>
                   {" "}
-                  {this.state.user.fname},{this.state.user.lname}
+                  {this.state.user.fname} {this.state.user.lname}
                 </p>
                 <p> +255 123 456 </p>
                 <p> {this.state.user.email} </p>

@@ -181,6 +181,32 @@ router.post('/rides/:id/request', Ride.request);
  */
 router.get('/users/rides/:id/requests', User.getRequests);
 
+// Fetch all ride offers by ud
+/**
+ * @swagger
+ *
+ * /api/vi/users/rides/{user_id}/offers:
+ *   get:
+ *     tags:
+ *       - "Rides"
+ *     summary: "Fetch all ride offers using ride id"
+ *     description: This route should return a list of ride offers and statuses
+ *     parameters:
+ *      - name: "user_id"
+ *        in: "path"
+ *        description: "ID of user"
+ *        required: true
+ *        type: "integer"
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Successfull retrieval
+ *       401:
+ *         description: Unauthorized, token was not provided
+ */
+router.get('/users/rides/:id/offers', User.getOffers);
+
 // Fetch users ride history
 /**
  * @swagger
