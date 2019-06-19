@@ -24,7 +24,7 @@ const options = {
     basePath: '/api-docs',
   },
   // List of files to be processes. You can also set globs './routes/*.js'
-  apis: ['./router/*.js'],
+  apis: ['./src/router/*.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
@@ -35,5 +35,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', router);
 
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+}
 export default app;
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
