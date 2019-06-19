@@ -1,27 +1,27 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
-const _express = _interopRequireDefault(require('express'));
+var _express = _interopRequireDefault(require("express"));
 
-const _bodyParser = _interopRequireDefault(require('body-parser'));
+var _bodyParser = _interopRequireDefault(require("body-parser"));
 
-const _swaggerUiExpress = _interopRequireDefault(require('swagger-ui-express'));
+var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 
-const _swaggerJsdoc = _interopRequireDefault(require('swagger-jsdoc'));
+var _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
 
-const _routes = _interopRequireDefault(require('./router/routes'));
+var _routes = _interopRequireDefault(require("./router/routes"));
 
-const _auth = _interopRequireDefault(require('./router/auth'));
+var _auth = _interopRequireDefault(require("./router/auth"));
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-const app = (0, _express.default)();
-const port = 3001;
-const options = {
+var app = (0, _express["default"])();
+var port = 3001;
+var options = {
   swaggerDefinition: {
     // Like the one described here: https://swagger.io/specification/#infoObject
     info: {
@@ -30,24 +30,28 @@ const options = {
       description: 'API documentation for ridemyway, Curtesy of ALC, ForloopTanzania',
       contact: {
         name: 'Lupyana Mbembati',
-        email: 'lupyanambembati@gmail.com',
-      },
+        email: 'lupyanambembati@gmail.com'
+      }
     },
-    basePath: '/api-docs',
+    basePath: '/api-docs'
   },
   // List of files to be processes. You can also set globs './routes/*.js'
-  apis: ['./router/*.js'],
+  apis: ['./src/router/*.js']
 };
-const swaggerSpec = (0, _swaggerJsdoc.default)(options);
-app.use(_bodyParser.default.json());
-app.use(
-  _bodyParser.default.urlencoded({
-    extended: false,
-  }),
-);
-app.use('/api-docs', _swaggerUiExpress.default.serve, _swaggerUiExpress.default.setup(swaggerSpec));
-app.use('/api/v1', _auth.default);
-app.use('/api/v1', _routes.default);
-const _default = app;
-exports.default = _default;
-app.listen(port, () => console.log('Example app listening on port '.concat(port, '!')));
+var swaggerSpec = (0, _swaggerJsdoc["default"])(options);
+app.use(_bodyParser["default"].json());
+app.use(_bodyParser["default"].urlencoded({
+  extended: false
+}));
+app.use('/api-docs', _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(swaggerSpec));
+app.use('/api/v1', _auth["default"]);
+app.use('/api/v1', _routes["default"]);
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, function () {
+    return console.log("Example app listening on port ".concat(port, "!"));
+  });
+}
+
+var _default = app;
+exports["default"] = _default;
