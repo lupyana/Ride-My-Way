@@ -7,8 +7,7 @@ import router from './router/routes';
 import authRoutes from './router/auth';
 
 const app = express();
-const port = 3001;
-
+const port = process.env.PORT || 3001;
 const options = {
   swaggerDefinition: {
     // Like the one described here: https://swagger.io/specification/#infoObject
