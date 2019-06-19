@@ -20,8 +20,7 @@
   "proxy": "http://localhost:3001/",
   "engines": {
     "node": "8.16.0",
-    "npm": "6.4.1",
-    "yarn": "1.16.0"
+    "npm": "6.4.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
