@@ -9,7 +9,7 @@ class Login extends Component {
   }
   authUser(email, password) {
     axios
-      .post("/auth/login", { email, password })
+      .post("api/v1/auth/login", { email, password })
       .then(response => {
         console.log(response.data);
         localStorage.setItem("authToken", response.data.access_token);
