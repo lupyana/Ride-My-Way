@@ -6,10 +6,10 @@
   "author": "Lupyana Mbembati",
   "license": "MIT",
   "scripts": {
-    "test": "jest --detectOpenHandles --forceExit",
-    "coveralls": "jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
-    "dev": "babel-watch app.js",
-    "build": "babel app.js --out-dir build",
+    "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit",
+    "coveralls": "NODE_ENV=test jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
+    "dev": "babel-watch src/app.js",
+    "build": "babel ./src --out-dir build/ --copy-files",
     "start": "babel-watch app.js"
   },
   "jest": {
@@ -18,9 +18,9 @@
     ]
   },
   "engines": {
-    "node": "8.15.1",
+    "node": "8.16.0",
     "npm": "6.4.1",
-    "yarn": "1.12.3"
+    "yarn": "1.16.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
