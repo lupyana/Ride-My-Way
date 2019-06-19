@@ -32,7 +32,7 @@ const swaggerSpec = swaggerJsdoc(options);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
-app.get('/', (req, res) => res.sendFile('index.html'));
+app.get('/', (req, res) => res.sendFile(`${path.resolve(`${__dirname}/../../frontend/build`)}index.html`));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', router);
