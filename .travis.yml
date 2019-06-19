@@ -11,6 +11,5 @@ before_script:
 script:
   - cd backend && yarn install
   - node db.js createAllTables
-  - yarn test
 after_success:
   - yarn coveralls
