@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
+import path from 'path';
 import router from './router/routes';
 import authRoutes from './router/auth';
 
@@ -30,6 +31,8 @@ const swaggerSpec = swaggerJsdoc(options);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
+app.get('/', (req, res) => res.render('index'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', router);

@@ -13,6 +13,8 @@ var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 
 var _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
 
+var _path = _interopRequireDefault(require("path"));
+
 var _routes = _interopRequireDefault(require("./router/routes"));
 
 var _auth = _interopRequireDefault(require("./router/auth"));
@@ -20,7 +22,7 @@ var _auth = _interopRequireDefault(require("./router/auth"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
-var port = 3001;
+var port = process.env.PORT || 3001;
 var options = {
   swaggerDefinition: {
     // Like the one described here: https://swagger.io/specification/#infoObject
@@ -43,6 +45,11 @@ app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
   extended: false
 }));
+console.log(_path["default"].resolve("".concat(__dirname, "/../../frontend/build")));
+app.use(_express["default"]["static"](_path["default"].resolve("".concat(__dirname, "/../../frontend/build"))));
+app.get('/', function (req, res) {
+  return res.render('index');
+});
 app.use('/api-docs', _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(swaggerSpec));
 app.use('/api/v1', _auth["default"]);
 app.use('/api/v1', _routes["default"]);
