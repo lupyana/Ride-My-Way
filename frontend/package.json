@@ -11,16 +11,16 @@
     "react-scripts": "3.0.1"
   },
   "engines": {
-    "node": "8.15.1",
+    "node": "8.16.0",
     "npm": "6.4.1",
-    "yarn": "1.12.3"
+    "yarn": "1.16.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "cd ../backend && yarn && yarn dev"
+    "heroku-postbuild": "cd ../backend && yarn install && yarn dev"
   },
   "eslintConfig": {
     "extends": "react-app"
