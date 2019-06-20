@@ -15,7 +15,6 @@
     "npm": "6.4.1",
     "yarn": "1.16.0"
   },
-  "proxy": "http://localhost:3001/api/v1",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
