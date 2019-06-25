@@ -9,7 +9,7 @@ class Login extends Component {
   }
   authUser(email, password) {
     axios({
-      method: "post", //you can set what request you want to be
+      method: "post",
       url: "https://lupyana-ridemyway-api.herokuapp.com/api/v1/auth/login",
       data: {
         email,
