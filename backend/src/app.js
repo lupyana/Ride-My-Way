@@ -12,17 +12,15 @@ const app = express();
 
 app.use(
   cors({
-    origin: '*',
-    preflightContinue: false,
+    origin: 'lupyana-ridemyway.herokuapp.com',
   }),
 );
-const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 const port = process.env.PORT || 3001;
 const options = {
