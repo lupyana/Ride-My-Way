@@ -6,18 +6,25 @@
   "author": "Lupyana Mbembati",
   "license": "MIT",
   "scripts": {
-    "test": "jest --detectOpenHandles --forceExit",
-    "coveralls": "jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
-    "dev": "babel-watch app.js",
-    "build": "babel app.js --out-dir build"
+    "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit",
+    "coveralls": "NODE_ENV=test jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
+    "dev": "babel-watch src/app.js",
+    "build": "babel ./src --out-dir build/ --copy-files",
+    "heroku-postbuild": "node db createAllTables",
+    "start": "node build/app.js"
   },
   "jest": {
     "setupFilesAfterEnv": [
       "jest-extended"
     ]
   },
+  "engines": {
+    "node": "8.16.0",
+    "npm": "6.4.1"
+  },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.4.4",
+    "babel-core": "^7.0.0-bridge.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
@@ -30,10 +37,11 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^7.0.0",
     "coveralls": "^3.0.3",

@@ -11,8 +11,9 @@
     "react-scripts": "3.0.1"
   },
   "engines": {
-    "node": "8.15.1",
-    "npm": "6.4.1"
+    "node": "8.16.0",
+    "npm": "6.4.1",
+    "yarn": "1.16.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,7 +21,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001/api/v1",
   "eslintConfig": {
     "extends": "react-app"
   },
