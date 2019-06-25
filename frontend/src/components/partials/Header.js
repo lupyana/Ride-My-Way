@@ -16,6 +16,7 @@ class Header extends Component {
   logOut(e) {
     e.preventDefault();
     auth.logOut(() => {});
+    window.location.href = "/";
     // this.props.history.push("/login");
   }
   username() {
