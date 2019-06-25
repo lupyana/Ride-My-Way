@@ -22,7 +22,9 @@ class Login extends Component {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         this.props.history.push("/");
       })
-      .catch(error => error);
+      .catch(error => {
+        console.log(error);
+      });
   }
   render() {
     return (
