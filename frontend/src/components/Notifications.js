@@ -14,7 +14,11 @@ class Notifications extends Component {
   acceptOffer(id, ride_id) {
     axios({
       method: "put", //you can set what request you want to be
-      url: "/users/rides/" + ride_id + "/requests/" + id,
+      url:
+        "https://lupyana-ridemyway-api.herokuapp.com/api/v1/users/rides/" +
+        ride_id +
+        "/requests/" +
+        id,
       headers: {
         Authorization: localStorage.authToken
       }
