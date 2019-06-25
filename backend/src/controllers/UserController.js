@@ -4,7 +4,7 @@ import db from '../db/index';
 
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
-const SECRET_KEY = 'secretkey23456';
+const SECRET_KEY = 'ridemyway';
 const expiresIn = 24 * 60 * 60;
 
 const User = {
