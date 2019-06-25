@@ -32,11 +32,7 @@ const swaggerSpec = swaggerJsdoc(options);
 
 const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
 
-app.use(
-  cors({
-    origin: 'lupyana-ridemyway-api.herokuapp.com'
-  });
-);
+app.options('*', cors()); //
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

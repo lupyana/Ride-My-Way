@@ -1,7 +1,6 @@
 // get an instance of the express Router
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import cors from 'cors';
 import Ride from '../controllers/RidesController';
 import User from '../controllers/UserController';
 
@@ -51,7 +50,7 @@ router.use((req, res, next) => {
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.get('/rides', cors(), Ride.getAll);
+router.get('/rides', Ride.getAll);
 
 // Fetch the details of a single ride
 /**
@@ -77,7 +76,7 @@ router.get('/rides', cors(), Ride.getAll);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.get('/rides/:id', cors(), Ride.getOne);
+router.get('/rides/:id', Ride.getOne);
 
 // Create a ride offer
 /**
@@ -125,7 +124,7 @@ router.get('/rides/:id', cors(), Ride.getOne);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.post('/rides', cors(), Ride.create);
+router.post('/rides', Ride.create);
 
 // Make a request to join a ride.
 /**
@@ -153,7 +152,7 @@ router.post('/rides', cors(), Ride.create);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.post('/rides/:id/request', cors(), Ride.request);
+router.post('/rides/:id/request', Ride.request);
 
 // Fetch all ride requests by ud
 /**
@@ -179,7 +178,7 @@ router.post('/rides/:id/request', cors(), Ride.request);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.get('/users/rides/:id/requests', cors(), User.getRequests);
+router.get('/users/rides/:id/requests', User.getRequests);
 
 // Fetch all ride offers by ud
 /**
@@ -205,7 +204,7 @@ router.get('/users/rides/:id/requests', cors(), User.getRequests);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.get('/users/rides/:id/offers', cors(), User.getOffers);
+router.get('/users/rides/:id/offers', User.getOffers);
 
 // Fetch users ride history
 /**
@@ -231,7 +230,7 @@ router.get('/users/rides/:id/offers', cors(), User.getOffers);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.get('/users/:user_id/rides/history', cors(), User.getHistory);
+router.get('/users/:user_id/rides/history', User.getHistory);
 
 // Accept or reject a ride request.
 // Fetch all ride requests
@@ -270,6 +269,6 @@ router.get('/users/:user_id/rides/history', cors(), User.getHistory);
  *       401:
  *         description: Unauthorized, token was not provided
  */
-router.put('/users/rides/:ride_id/requests/:request_id', cors(), User.replyRequests);
+router.put('/users/rides/:ride_id/requests/:request_id', User.replyRequests);
 
 export default router;
