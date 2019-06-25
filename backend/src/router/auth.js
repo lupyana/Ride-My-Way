@@ -1,9 +1,11 @@
 // get an instance of the express Router
 import express from 'express';
+import cors from 'cors';
 import User from '../controllers/UserController';
 
 const authRoutes = express.Router();
-
+authRoutes.use(cors());
+authRoutes.options('*', cors()); //
 /**
  * @swagger
  *
