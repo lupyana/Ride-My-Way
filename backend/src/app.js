@@ -9,6 +9,13 @@ import router from './router/routes';
 import authRoutes from './router/auth';
 
 const app = express();
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 const port = process.env.PORT || 3001;
 const options = {
   swaggerDefinition: {
@@ -31,8 +38,6 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
-app.use(cors());
-app.options('*', cors()); //
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
