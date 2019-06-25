@@ -29,7 +29,28 @@ const options = {
 };
 
 const swaggerSpec = swaggerJsdoc(options);
-app.use(cors());
+
+const allowedOrigins = ['https://lupyana-ridemyway.herokuapp.com'];
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // allow requests with no origin
+      // (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not ' + 'allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+
+    exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
+
+    credentials: true,
+  }),
+);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
