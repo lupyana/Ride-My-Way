@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'lupyana-ridemyway.herokuapp.com',
+    origin: 'https://lupyana-ridemyway.herokuapp.com',
   }),
 );
 
