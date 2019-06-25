@@ -73,24 +73,26 @@ const User = {
 
     // check if user exists
     const query = 'SELECT * FROM users WHERE email = $1';
-    db.query(query, [req.body.email]).then((result) => {
-      const authUser = result.rows[0];
+    db.query(query, [req.body.email])
+      .then((result) => {
+        const authUser = result.rows[0];
 
-      if (!authUser) {
-        return res.status(400).send({ message: 'The user does not exists' });
-      }
+        if (!authUser) {
+          return res.status(400).send({ message: 'The user does not exists' });
+        }
 
-      const phash = authUser.password;
+        const phash = authUser.password;
 
-      if (!bcrypt.compareSync(req.body.password, phash)) {
-        return res.status(400).send({ message: 'Password mismatch' });
-      }
+        if (!bcrypt.compareSync(req.body.password, phash)) {
+          return res.status(400).send({ message: 'Password mismatch' });
+        }
 
-      const accessToken = jwt.sign({ id: authUser.id }, SECRET_KEY, {
-        expiresIn,
-      });
-      res.status(200).send({ user: authUser, access_token: accessToken, expires_in: expiresIn });
-    });
+        const accessToken = jwt.sign({ id: authUser.id }, SECRET_KEY, {
+          expiresIn,
+        });
+        res.status(200).send({ user: authUser, access_token: accessToken, expires_in: expiresIn });
+      })
+      .catch(error => error);
   },
 
   getRequests(req, res) {

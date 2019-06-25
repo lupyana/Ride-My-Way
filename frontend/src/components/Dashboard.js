@@ -16,7 +16,7 @@ class Dashboard extends Component {
 
   fetchNewData() {
     axios
-      .get("/rides", {
+      .get("api/v1/rides", {
         headers: {
           Authorization: localStorage.authToken
         }

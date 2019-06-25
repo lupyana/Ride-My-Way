@@ -92,7 +92,7 @@ describe('Create a ride offer', () => {
   const newRide = {
     from: 'HEre test',
     to: 'There test',
-    with: 'Ben The test driver',
+    with: 1,
     time: '1800',
   };
   test('Creating a ride offer increases the size of rides array', (done) => {
