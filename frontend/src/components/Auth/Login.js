@@ -8,11 +8,14 @@ class Login extends Component {
     this.authUser(this.email.value, this.password.value);
   }
   authUser(email, password) {
-    axios
-      .post("https://lupyana-ridemyway-api.herokuapp.com/api/v1/auth/login", {
+    axios({
+      method: "post", //you can set what request you want to be
+      url: "https://lupyana-ridemyway-api.herokuapp.com/api/v1/auth/login",
+      data: {
         email,
         password
-      })
+      }
+    })
       .then(response => {
         console.log(response.data);
         localStorage.setItem("authToken", response.data.access_token);
