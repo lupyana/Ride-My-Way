@@ -4,13 +4,7 @@ import cors from 'cors';
 import User from '../controllers/UserController';
 
 const authRoutes = express.Router();
-authRoutes.use(cors());
-authRoutes.options('*', cors());
-authRoutes.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', '*');
-  response.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+
 /**
  * @swagger
  *

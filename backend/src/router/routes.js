@@ -5,7 +5,7 @@ import Ride from '../controllers/RidesController';
 import User from '../controllers/UserController';
 
 const router = express.Router();
-const SECRET_KEY = 'secretkey23456';
+const SECRET_KEY = 'ridemyway';
 
 // Custom middleware
 router.use((req, res, next) => {
