@@ -1,5 +1,6 @@
 // get an instance of the express Router
 import express from 'express';
+import cors from 'cors';
 import User from '../controllers/UserController';
 
 const authRoutes = express.Router();
@@ -43,7 +44,7 @@ const authRoutes = express.Router();
  *         description: Missing parameters
  */
 
-authRoutes.post('/auth/register', User.register);
+authRoutes.post('/auth/register', cors(), User.register);
 
 /**
  * @swagger
@@ -75,7 +76,7 @@ authRoutes.post('/auth/register', User.register);
  *       404:
  *         description: Token mismatch
  */
-authRoutes.post('/auth/verify', User.verify);
+authRoutes.post('/auth/verify', cors(), User.verify);
 
 /**
  * @swagger
@@ -105,6 +106,6 @@ authRoutes.post('/auth/verify', User.verify);
  *       400:
  *           description: User doesnot exist or password mismatch
  */
-authRoutes.post('/auth/login', User.login);
+authRoutes.post('/auth/login', cors(), User.login);
 
 export default authRoutes;
