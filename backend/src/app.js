@@ -11,12 +11,9 @@ import authRoutes from './router/auth';
 const app = express();
 
 app.use(cors());
-app.options('*', cors()
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+app.options('/api/v1', cors()
+const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
+
 
 const port = process.env.PORT || 3001;
 const options = {
@@ -39,12 +36,10 @@ const options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 
-const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
-app.get('/', (req, res) => res.sendFile(path.resolve(`${__dirname}/../../frontend/build/index.html`)));
+// app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
+// app.get('/', (req, res) => res.sendFile(path.resolve(`${__dirname}/../../frontend/build/index.html`)));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', router);
