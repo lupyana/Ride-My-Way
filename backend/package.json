@@ -10,7 +10,7 @@
     "coveralls": "NODE_ENV=test jest --detectOpenHandles --forceExit --coverage --coverageReporters=text-lcov | coveralls",
     "dev": "babel-watch src/app.js",
     "build": "babel ./src --out-dir build/ --copy-files",
-    "heroku-postbuild": "babel ./src --out-dir build/ --copy-files node db createAllTables",
+    "heroku-postbuild": "node db createAllTables && babel ./src --out-dir build/ --copy-files",
     "start": "node build/app.js"
   },
   "jest": {
