@@ -14,6 +14,11 @@ app.use(cors());
 app.options('/api/v1', cors()
 const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
 
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   next();
+// });
 
 const port = process.env.PORT || 3001;
 const options = {
