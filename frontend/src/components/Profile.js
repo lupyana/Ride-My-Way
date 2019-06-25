@@ -17,11 +17,16 @@ class Profile extends Component {
       user: JSON.parse(localStorage.user)
     });
     axios
-      .get("/users/" + JSON.parse(localStorage.user).id + "/rides/history", {
-        headers: {
-          Authorization: localStorage.authToken
+      .get(
+        "https://lupyana-ridemyway-api.herokuapp.com/api/v1/users/" +
+          JSON.parse(localStorage.user).id +
+          "/rides/history",
+        {
+          headers: {
+            Authorization: localStorage.authToken
+          }
         }
-      })
+      )
       .then(response => {
         this.setState({
           rides: response.data.data

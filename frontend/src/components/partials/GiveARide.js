@@ -14,7 +14,7 @@ class GiveARide extends Component {
     e.preventDefault();
     axios({
       method: "post", //you can set what request you want to be
-      url: "rides",
+      url: "https://lupyana-ridemyway-api.herokuapp.com/api/v1/rides",
       data: {
         from: this.ride_start.value,
         to: this.ride_destination.value,

@@ -16,7 +16,7 @@ class Dashboard extends Component {
 
   fetchNewData() {
     axios
-      .get("/rides", {
+      .get("https://lupyana-ridemyway-api.herokuapp.com/api/v1/rides", {
         headers: {
           Authorization: localStorage.authToken
         }

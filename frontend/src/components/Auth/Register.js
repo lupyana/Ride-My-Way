@@ -23,7 +23,10 @@ class Register extends Component {
   }
   registeUser(fname, lname, email, password) {
     axios
-      .post("/auth/register", { fname, lname, email, password })
+      .post(
+        "https://lupyana-ridemyway-api.herokuapp.com/api/v1/auth/register",
+        { fname, lname, email, password }
+      )
       .then(response => {
         console.log(response.data);
         this.props.history.push("/verification");

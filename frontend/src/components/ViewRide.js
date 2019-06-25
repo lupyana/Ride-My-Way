@@ -33,7 +33,10 @@ class ViewRide extends Component {
   requestRide() {
     axios({
       method: "post", //you can set what request you want to be
-      url: "/rides/" + this.props.location.rideDetails.id + "/request",
+      url:
+        "https://lupyana-ridemyway-api.herokuapp.com/api/v1/rides/" +
+        this.props.location.rideDetails.id +
+        "/request",
       data: {
         ride_id: this.props.location.rideDetails.id,
         user_id: JSON.parse(localStorage.user).id
@@ -50,11 +53,15 @@ class ViewRide extends Component {
 
   componentDidMount() {
     axios
-      .get("/rides/" + this.props.location.rideDetails.id, {
-        headers: {
-          Authorization: localStorage.authToken
+      .get(
+        "https://lupyana-ridemyway-api.herokuapp.com/api/v1/rides/" +
+          this.props.location.rideDetails.id,
+        {
+          headers: {
+            Authorization: localStorage.authToken
+          }
         }
-      })
+      )
       .then(response => {
         this.setState({
           rides: response.data.data
