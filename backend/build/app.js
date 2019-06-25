@@ -15,6 +15,8 @@ var _swaggerJsdoc = _interopRequireDefault(require("swagger-jsdoc"));
 
 var _path = _interopRequireDefault(require("path"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
 var _routes = _interopRequireDefault(require("./router/routes"));
 
 var _auth = _interopRequireDefault(require("./router/auth"));
@@ -22,6 +24,16 @@ var _auth = _interopRequireDefault(require("./router/auth"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
+app.use((0, _cors["default"])({
+  origin: '*',
+  preflightContinue: false
+}));
+var allowedOrigins = ['lupyana-ridemyway.herokuapp.com']; // app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   next();
+// });
+
 var port = process.env.PORT || 3001;
 var options = {
   swaggerDefinition: {
@@ -44,12 +56,9 @@ var swaggerSpec = (0, _swaggerJsdoc["default"])(options);
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
   extended: false
-}));
-console.log(_path["default"].resolve("".concat(__dirname, "/../../frontend/build")));
-app.use(_express["default"]["static"](_path["default"].resolve("".concat(__dirname, "/../../frontend/build"))));
-app.get('/', function (req, res) {
-  return res.render('index');
-});
+})); // app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
+// app.get('/', (req, res) => res.sendFile(path.resolve(`${__dirname}/../../frontend/build/index.html`)));
+
 app.use('/api-docs', _swaggerUiExpress["default"].serve, _swaggerUiExpress["default"].setup(swaggerSpec));
 app.use('/api/v1', _auth["default"]);
 app.use('/api/v1', _routes["default"]);

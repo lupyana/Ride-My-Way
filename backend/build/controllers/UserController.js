@@ -119,6 +119,8 @@ var User = {
         access_token: accessToken,
         expires_in: expiresIn
       });
+    })["catch"](function (error) {
+      return error;
     });
   },
   getRequests: function getRequests(req, res) {

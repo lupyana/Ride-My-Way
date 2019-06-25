@@ -10,8 +10,12 @@ import authRoutes from './router/auth';
 
 const app = express();
 
-app.use(cors());
-app.options('/api/v1', cors()
+app.use(
+  cors({
+    origin: '*',
+    preflightContinue: false,
+  }),
+);
 const allowedOrigins = ['lupyana-ridemyway.herokuapp.com'];
 
 // app.use((req, res, next) => {

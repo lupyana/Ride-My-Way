@@ -7,12 +7,22 @@ exports["default"] = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
 var _UserController = _interopRequireDefault(require("../controllers/UserController"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // get an instance of the express Router
 var authRoutes = _express["default"].Router();
+
+authRoutes.use((0, _cors["default"])());
+authRoutes.options('*', (0, _cors["default"])());
+authRoutes.use(function (request, response, next) {
+  response.header('Access-Control-Allow-Origin', '*');
+  response.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 /**
  * @swagger
  *
@@ -51,7 +61,6 @@ var authRoutes = _express["default"].Router();
  *       400:
  *         description: Missing parameters
  */
-
 
 authRoutes.post('/auth/register', _UserController["default"].register);
 /**
