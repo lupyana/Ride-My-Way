@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import path from 'path';
+import cors from 'cors';
 import router from './router/routes';
 import authRoutes from './router/auth';
 
@@ -28,7 +29,7 @@ const options = {
 };
 
 const swaggerSpec = swaggerJsdoc(options);
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(`${__dirname}/../../frontend/build`)));
